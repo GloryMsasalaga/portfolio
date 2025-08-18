@@ -7,7 +7,7 @@
     "description": "A real-time application of user instake meals and drinks, and ai recommendations based on weeks or 30 days.",
     "technologies": "React, PostgreSQL, Typescript, Vue, Supabase",
     "github_link": "https://github.com/GloryMsasalaga/tamu-talk-nutrition-guide.git",
-    "live_link": null,
+    "live_link": "https://tamu-talk.netlify.app/",
     "image": "",
     "created_at": "2025-08-18T14:45:27.797Z"
   }
@@ -46,7 +46,7 @@
     "description": "This responsive portfolio website with 3D animations and modern design. Built with Django and Three.js.",
     "technologies": "Python, Django, Three.js, Bootstrap 5, CSS3",
     "github_link": "https://github.com/Veryniceglory/portfolio",
-    "live_link": "https://glorylazaro.dev",
+    "live_link": "https://veryniceglory.deploy.tz/",
     "image": "",
     "created_at": "2025-08-18T14:45:27.847Z"
   }
@@ -72,7 +72,7 @@
     "description": "A community website for university student to engage, collaborate and network with different uni students.",
     "technologies": "Django, PostgreSQL, HTML, CSS, JavaScript, Ai tools",
     "github_link": "https://github.com/GloryMsasalaga/aru-tech-community.git",
-    "live_link": null,
+    "live_link": "https://aru-tech-community.deploy.tz/",
     "image": "",
     "created_at": "2025-08-18T15:52:41.079Z"
   }
