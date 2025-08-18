@@ -8,8 +8,12 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         self.stdout.write('Loading updated portfolio data...')
         
-        # Load both portfolio and updated services data
-        data_files = ['portfolio_data.json', 'updated_services_data.json']
+        # Load portfolio data, updated services data, and about data
+        data_files = [
+            'portfolio_data.json', 
+            'updated_services_data.json',
+            'about_data.json'
+        ]
         
         for data_file in data_files:
             if os.path.exists(data_file):

@@ -1,0 +1,114 @@
+[
+{
+  "model": "portfolio.skill",
+  "pk": 1,
+  "fields": {
+    "name": "Python",
+    "proficiency": 95,
+    "category": "Programming Languages"
+  }
+},
+{
+  "model": "portfolio.skill",
+  "pk": 2,
+  "fields": {
+    "name": "JavaScript",
+    "proficiency": 90,
+    "category": "Programming Languages"
+  }
+},
+{
+  "model": "portfolio.skill",
+  "pk": 3,
+  "fields": {
+    "name": "Django",
+    "proficiency": 92,
+    "category": "Web Frameworks"
+  }
+},
+{
+  "model": "portfolio.skill",
+  "pk": 4,
+  "fields": {
+    "name": "React",
+    "proficiency": 88,
+    "category": "Frontend Frameworks"
+  }
+},
+{
+  "model": "portfolio.skill",
+  "pk": 5,
+  "fields": {
+    "name": "Machine Learning",
+    "proficiency": 85,
+    "category": "AI/ML"
+  }
+},
+{
+  "model": "portfolio.skill",
+  "pk": 6,
+  "fields": {
+    "name": "TensorFlow",
+    "proficiency": 80,
+    "category": "AI/ML"
+  }
+},
+{
+  "model": "portfolio.skill",
+  "pk": 7,
+  "fields": {
+    "name": "PostgreSQL",
+    "proficiency": 85,
+    "category": "Databases"
+  }
+},
+{
+  "model": "portfolio.skill",
+  "pk": 8,
+  "fields": {
+    "name": "Docker",
+    "proficiency": 82,
+    "category": "DevOps"
+  }
+},
+{
+  "model": "portfolio.skill",
+  "pk": 9,
+  "fields": {
+    "name": "AWS",
+    "proficiency": 78,
+    "category": "Cloud Platforms"
+  }
+},
+{
+  "model": "portfolio.skill",
+  "pk": 10,
+  "fields": {
+    "name": "Git",
+    "proficiency": 90,
+    "category": "Tools"
+  }
+},
+{
+  "model": "portfolio.skill",
+  "pk": 11,
+  "fields": {
+    "name": "HTML",
+    "proficiency": 97,
+    "category": "Frontend Frameworks"
+  }
+},
+{
+  "model": "portfolio.education",
+  "pk": 1,
+  "fields": {
+    "institution": "Ardhi University",
+    "degree": "Bachelor of Science",
+    "field_of_study": "Computer Systems and Networks",
+    "start_date": "2022-10-10",
+    "end_date": "2025-07-18",
+    "is_current": false,
+    "description": "Focused on software engineering, algorithms, and machine learning. Graduated with honors."
+  }
+}
+]
