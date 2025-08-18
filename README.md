@@ -167,12 +167,14 @@ This project is licensed under the MIT License. See the LICENSE file for details
 
 ## Deployment
 
-### Heroku
-1. Install Heroku CLI
-2. Create a Heroku app: `heroku create your-app-name`
-3. Add PostgreSQL addon: `heroku addons:create heroku-postgresql:hobby-dev`
-4. Configure environment variables
-5. Deploy: `git push heroku main`
+### Deploy.tz
+1. Create account in https://deploy.tz
+2. Create Shipfile in your project folder
+3. Make sure you have requirements.txt
+4. Create application in deploy.tz
+5. Write name of application for domain
+6. Insert stack i.e python or go
+7. Paste github repo in github repo box
 
 ### Digital Ocean/AWS
 1. Set up a server with Python 3.9+
