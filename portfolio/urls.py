@@ -7,6 +7,7 @@ from . import views
 
 urlpatterns = [
     # Frontend URLs
+    path('loading/', views.loading, name='loading'),
     path('', views.home, name='home'),
     path('about/', views.about, name='about'),
     path('projects/', views.projects, name='projects'),

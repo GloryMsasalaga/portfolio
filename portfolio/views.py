@@ -8,6 +8,10 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib import messages
 from .models import Project, Contact, Service, ServiceOrder, Skill, Education, Experience
 
+def loading(request):
+    """View for loading page."""
+    return render(request, 'loading.html')
+
 def home(request):
     """View for home page."""
     projects = Project.objects.all()[:3]  # Get only 3 most recent projects
