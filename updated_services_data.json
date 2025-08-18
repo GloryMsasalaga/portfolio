@@ -1,0 +1,62 @@
+[
+{
+  "model": "portfolio.service",
+  "pk": 1,
+  "fields": {
+    "title": "Web Development",
+    "description": "Full-stack web development using modern technologies like Django, React, and cloud platforms.",
+    "price": "77.94",
+    "icon": "fa-code"
+  }
+},
+{
+  "model": "portfolio.service",
+  "pk": 2,
+  "fields": {
+    "title": "AI/ML Solutions",
+    "description": "Custom machine learning models and AI solutions for your business needs.",
+    "price": "1800.00",
+    "icon": "fa-brain"
+  }
+},
+{
+  "model": "portfolio.service",
+  "pk": 3,
+  "fields": {
+    "title": "API Development",
+    "description": "RESTful API development and integration services for web and mobile applications.",
+    "price": "78.00",
+    "icon": "fa-cogs"
+  }
+},
+{
+  "model": "portfolio.service",
+  "pk": 4,
+  "fields": {
+    "title": "Consulting",
+    "description": "Technical consulting and architecture planning for software projects.",
+    "price": "76.00",
+    "icon": "fa-lightbulb"
+  }
+},
+{
+  "model": "portfolio.service",
+  "pk": 5,
+  "fields": {
+    "title": "Mobile App Development",
+    "description": "Cross-platform mobile app development using React Native and Flutter.",
+    "price": "76.04",
+    "icon": "fa-mobile-alt"
+  }
+},
+{
+  "model": "portfolio.service",
+  "pk": 6,
+  "fields": {
+    "title": "DevOps & Deployment",
+    "description": "CI/CD pipeline setup, cloud deployment, and infrastructure management.",
+    "price": "79.00",
+    "icon": "fa-cloud"
+  }
+}
+]

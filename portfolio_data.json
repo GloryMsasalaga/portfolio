@@ -1,0 +1,265 @@
+[
+{
+  "model": "portfolio.project",
+  "pk": 1,
+  "fields": {
+    "title": "TamuTalk Nutrition Guide",
+    "description": "A real-time application of user instake meals and drinks, and ai recommendations based on weeks or 30 days.",
+    "technologies": "React, PostgreSQL, Typescript, Vue, Supabase",
+    "github_link": "https://github.com/GloryMsasalaga/tamu-talk-nutrition-guide.git",
+    "live_link": null,
+    "image": "",
+    "created_at": "2025-08-18T14:45:27.797Z"
+  }
+},
+{
+  "model": "portfolio.project",
+  "pk": 2,
+  "fields": {
+    "title": "E-commerce Analytics Dashboard",
+    "description": "A comprehensive analytics dashboard for e-commerce businesses with real-time data visualization and machine learning insights.",
+    "technologies": "Python, Django, Chart.js, Pandas, Scikit-learn, Redis",
+    "github_link": "https://github.com/Veryniceglory/ecommerce-analytics",
+    "live_link": "https://analytics.glorylazaro.dev",
+    "image": "",
+    "created_at": "2025-08-18T14:45:27.813Z"
+  }
+},
+{
+  "model": "portfolio.project",
+  "pk": 3,
+  "fields": {
+    "title": "Smart Home IoT System",
+    "description": "An IoT system for smart home automation with mobile app control and machine learning for energy optimization.",
+    "technologies": "Python, Django REST Framework, React Native, Arduino, TensorFlow",
+    "github_link": "https://github.com/Veryniceglory/smart-home-iot",
+    "live_link": null,
+    "image": "",
+    "created_at": "2025-08-18T14:45:27.825Z"
+  }
+},
+{
+  "model": "portfolio.project",
+  "pk": 5,
+  "fields": {
+    "title": "Portfolio Website",
+    "description": "This responsive portfolio website with 3D animations and modern design. Built with Django and Three.js.",
+    "technologies": "Python, Django, Three.js, Bootstrap 5, CSS3",
+    "github_link": "https://github.com/Veryniceglory/portfolio",
+    "live_link": "https://glorylazaro.dev",
+    "image": "",
+    "created_at": "2025-08-18T14:45:27.847Z"
+  }
+},
+{
+  "model": "portfolio.project",
+  "pk": 6,
+  "fields": {
+    "title": "Django-Voice",
+    "description": "A django documentation voice assistant enable ease of use and availability of documentation",
+    "technologies": "Django, PostgreSQL, HTML, CSS, JavaScript, Ai tools",
+    "github_link": "https://github.com/GloryMsasalaga/django-voice.git",
+    "live_link": null,
+    "image": "",
+    "created_at": "2025-08-18T15:51:07.454Z"
+  }
+},
+{
+  "model": "portfolio.project",
+  "pk": 7,
+  "fields": {
+    "title": "aru-tech-community",
+    "description": "A community website for university student to engage, collaborate and network with different uni students.",
+    "technologies": "Django, PostgreSQL, HTML, CSS, JavaScript, Ai tools",
+    "github_link": "https://github.com/GloryMsasalaga/aru-tech-community.git",
+    "live_link": null,
+    "image": "",
+    "created_at": "2025-08-18T15:52:41.079Z"
+  }
+},
+{
+  "model": "portfolio.project",
+  "pk": 8,
+  "fields": {
+    "title": "Kibena Ai",
+    "description": "A voice assistant (inspired by Siri and Bixby) talking in Swahili that manages and do things like calling, sending sms and check for remainder or locations especially for disabled people.",
+    "technologies": "Django, PostgreSQL, HTML, CSS, JavaScript, Ai tools, gTTS",
+    "github_link": "https://github.com/GloryMsasalaga/voice-assistant.git",
+    "live_link": null,
+    "image": "",
+    "created_at": "2025-08-18T15:55:22.566Z"
+  }
+},
+{
+  "model": "portfolio.service",
+  "pk": 1,
+  "fields": {
+    "title": "Web Development",
+    "description": "Full-stack web development using modern technologies like Django, React, and cloud platforms.",
+    "price": "77.94",
+    "icon": "fa-code"
+  }
+},
+{
+  "model": "portfolio.service",
+  "pk": 2,
+  "fields": {
+    "title": "AI/ML Solutions",
+    "description": "Custom machine learning models and AI solutions for your business needs.",
+    "price": "1800.00",
+    "icon": "fa-brain"
+  }
+},
+{
+  "model": "portfolio.service",
+  "pk": 3,
+  "fields": {
+    "title": "API Development",
+    "description": "RESTful API development and integration services for web and mobile applications.",
+    "price": "78.00",
+    "icon": "fa-cogs"
+  }
+},
+{
+  "model": "portfolio.service",
+  "pk": 4,
+  "fields": {
+    "title": "Consulting",
+    "description": "Technical consulting and architecture planning for software projects.",
+    "price": "76.00",
+    "icon": "fa-lightbulb"
+  }
+},
+{
+  "model": "portfolio.service",
+  "pk": 5,
+  "fields": {
+    "title": "Mobile App Development",
+    "description": "Cross-platform mobile app development using React Native and Flutter.",
+    "price": "76.04",
+    "icon": "fa-mobile-alt"
+  }
+},
+{
+  "model": "portfolio.service",
+  "pk": 6,
+  "fields": {
+    "title": "DevOps & Deployment",
+    "description": "CI/CD pipeline setup, cloud deployment, and infrastructure management.",
+    "price": "79.00",
+    "icon": "fa-cloud"
+  }
+},
+{
+  "model": "portfolio.skill",
+  "pk": 1,
+  "fields": {
+    "name": "Python",
+    "proficiency": 95,
+    "category": "Programming Languages"
+  }
+},
+{
+  "model": "portfolio.skill",
+  "pk": 2,
+  "fields": {
+    "name": "JavaScript",
+    "proficiency": 90,
+    "category": "Programming Languages"
+  }
+},
+{
+  "model": "portfolio.skill",
+  "pk": 3,
+  "fields": {
+    "name": "Django",
+    "proficiency": 92,
+    "category": "Web Frameworks"
+  }
+},
+{
+  "model": "portfolio.skill",
+  "pk": 4,
+  "fields": {
+    "name": "React",
+    "proficiency": 88,
+    "category": "Frontend Frameworks"
+  }
+},
+{
+  "model": "portfolio.skill",
+  "pk": 5,
+  "fields": {
+    "name": "Machine Learning",
+    "proficiency": 85,
+    "category": "AI/ML"
+  }
+},
+{
+  "model": "portfolio.skill",
+  "pk": 6,
+  "fields": {
+    "name": "TensorFlow",
+    "proficiency": 80,
+    "category": "AI/ML"
+  }
+},
+{
+  "model": "portfolio.skill",
+  "pk": 7,
+  "fields": {
+    "name": "PostgreSQL",
+    "proficiency": 85,
+    "category": "Databases"
+  }
+},
+{
+  "model": "portfolio.skill",
+  "pk": 8,
+  "fields": {
+    "name": "Docker",
+    "proficiency": 82,
+    "category": "DevOps"
+  }
+},
+{
+  "model": "portfolio.skill",
+  "pk": 9,
+  "fields": {
+    "name": "AWS",
+    "proficiency": 78,
+    "category": "Cloud Platforms"
+  }
+},
+{
+  "model": "portfolio.skill",
+  "pk": 10,
+  "fields": {
+    "name": "Git",
+    "proficiency": 90,
+    "category": "Tools"
+  }
+},
+{
+  "model": "portfolio.skill",
+  "pk": 11,
+  "fields": {
+    "name": "HTML",
+    "proficiency": 97,
+    "category": "Frontend Frameworks"
+  }
+},
+{
+  "model": "portfolio.education",
+  "pk": 1,
+  "fields": {
+    "institution": "Ardhi University",
+    "degree": "Bachelor of Science",
+    "field_of_study": "Computer Systems and Networks",
+    "start_date": "2022-10-10",
+    "end_date": "2025-07-18",
+    "is_current": false,
+    "description": "Focused on software engineering, algorithms, and machine learning. Graduated with honors."
+  }
+}
+]
