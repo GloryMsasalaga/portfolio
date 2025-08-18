@@ -14,7 +14,7 @@ SECRET_KEY = 'django-insecure-add-your-own-secret-key-here'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['deploy.tz', 'https://veryniceglory.deploy.tz/', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['deploy.tz', 'veryniceglory.deploy.tz', '127.0.0.1', 'localhost']
 
 # Application definition
 INSTALLED_APPS = [
