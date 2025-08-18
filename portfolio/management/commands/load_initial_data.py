@@ -7,6 +7,8 @@ class Command(BaseCommand):
     help = 'Load initial data for Glory Lazaro portfolio'
 
     def handle(self, *args, **options):
+        self.stdout.write('Starting to load initial data...')
+        
         # Create Skills
         skills_data = [
             {'name': 'Python', 'proficiency': 95, 'category': 'Programming Languages'},
