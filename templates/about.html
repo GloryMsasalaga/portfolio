@@ -1,0 +1,338 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}About - Glory Lazaro{% endblock %}
+
+{% block content %}
+<section class="py-5" style="margin-top: 80px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mb-5">
+                <h1 class="display-4 fw-bold">About Me</h1>
+                <p class="lead">Get to know Glory Lazaro (VeryNiceGlory)</p>
+            </div>
+        </div>
+        
+        <div class="row align-items-center mb-5">
+            <div class="col-lg-6">
+                <div class="about-image">
+                    <div class="profile-image-container">
+                        <img src="{% static 'assets/me.png' %}" alt="Glory Lazaro - Girl with glasses, black hood, and dreads" class="profile-image">
+                        <div class="image-overlay">
+                            <div class="floating-particles"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="about-content">
+                    <h2 class="h3 mb-4">Software Developer & AI/ML Engineer</h2>
+                    <p class="mb-4">
+                        Hello! I'm Glory Lazaro, known online as VeryNiceGlory. I'm a passionate software developer 
+                        and AI/ML engineer with a love for creating innovative solutions that make a real impact.
+                    </p>
+                    <p class="mb-4">
+                        My journey in technology began with a curiosity about how things work under the hood. 
+                        This curiosity led me to explore various programming languages, frameworks, and cutting-edge 
+                        technologies in artificial intelligence and machine learning.
+                    </p>
+                    <p class="mb-4">
+                        I believe in writing clean, efficient code and creating user experiences that are both 
+                        functional and delightful. Whether it's building web applications, developing machine 
+                        learning models, or architecting scalable systems, I approach each project with dedication 
+                        and attention to detail.
+                    </p>
+                    <div class="about-stats">
+                        <div class="row">
+                            <div class="col-md-4 text-center mb-3">
+                                <div class="stat-item">
+                                    <h3 class="text-primary">30+</h3>
+                                    <p>Projects Completed</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 text-center mb-3">
+                                <div class="stat-item">
+                                    <h3 class="text-primary">3+</h3>
+                                    <p>Years Experience</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 text-center mb-3">
+                                <div class="stat-item">
+                                    <h3 class="text-primary">100%</h3>
+                                    <p>Client Satisfaction</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Skills Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mb-5">
+                <h2 class="display-5 fw-bold">Technical Skills</h2>
+                <p class="lead">Technologies and tools I work with</p>
+            </div>
+        </div>
+        <div class="row">
+            {% for skill in skills %}
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="skill-card">
+                    <div class="skill-info">
+                        <h5>{{ skill.name }}</h5>
+                        <span class="skill-category">{{ skill.category }}</span>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 0%" 
+                                 aria-valuenow="{{ skill.proficiency }}" aria-valuemin="0" aria-valuemax="100">
+                                {{ skill.proficiency }}%
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Education Section -->
+{% if education %}
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mb-5">
+                <h2 class="display-5 fw-bold">Education</h2>
+            </div>
+        </div>
+        <div class="row">
+            {% for edu in education %}
+            <div class="col-lg-6 mb-4">
+                <div class="education-card">
+                    <div class="education-content">
+                        <h5>{{ edu.degree }}</h5>
+                        <h6 class="text-primary">{{ edu.institution }}</h6>
+                        <p class="text-muted">{{ edu.field_of_study }}</p>
+                        <div class="education-period">
+                            <i class="fas fa-calendar"></i>
+                            {{ edu.start_date|date:"Y" }} - 
+                            {% if edu.is_current %}
+                                Present
+                            {% else %}
+                                {{ edu.end_date|date:"Y" }}
+                            {% endif %}
+                        </div>
+                        {% if edu.description %}
+                            <p class="mt-3">{{ edu.description }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Experience Section -->
+{% if experience %}
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mb-5">
+                <h2 class="display-5 fw-bold">Experience</h2>
+            </div>
+        </div>
+        <div class="row">
+            {% for exp in experience %}
+            <div class="col-12 mb-4">
+                <div class="experience-card">
+                    <div class="experience-content">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <h5>{{ exp.position }}</h5>
+                                <h6 class="text-primary">{{ exp.company }}</h6>
+                                <p>{{ exp.description }}</p>
+                            </div>
+                            <div class="col-md-4 text-md-end">
+                                <div class="experience-period">
+                                    <i class="fas fa-calendar"></i>
+                                    {{ exp.start_date|date:"M Y" }} - 
+                                    {% if exp.is_current %}
+                                        Present
+                                    {% else %}
+                                        {{ exp.end_date|date:"M Y" }}
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- CTA Section -->
+<section class="py-5 bg-primary text-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="display-5 fw-bold mb-4">Let's Work Together</h2>
+                <p class="lead mb-4">Ready to bring your ideas to life? Let's discuss your project!</p>
+                <a href="{% url 'contact' %}" class="btn btn-light btn-lg">
+                    <i class="fas fa-envelope"></i> Get In Touch
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'js/skills-animation.js' %}"></script>
+<style>
+.about-image {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* Profile Image Styling */
+.profile-image-container {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+.profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.profile-image-container:hover .profile-image {
+    transform: scale(1.1);
+}
+
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.floating-particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.floating-particles::before,
+.floating-particles::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    animation: particle-float 4s ease-in-out infinite;
+}
+
+.floating-particles::before {
+    top: 20%;
+    left: 80%;
+    animation-delay: 0s;
+}
+
+.floating-particles::after {
+    top: 70%;
+    left: 15%;
+    animation-delay: 2s;
+}
+
+@keyframes particle-float {
+    0%, 100% { 
+        transform: translateY(0px) scale(1);
+        opacity: 0.7;
+    }
+    50% { 
+        transform: translateY(-20px) scale(1.2);
+        opacity: 1;
+    }
+}
+
+.about-stats .stat-item h3 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.education-card,
+.experience-card {
+    background: var(--card-bg);
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+    height: 100%;
+    transition: all 0.3s ease;
+}
+
+.education-card:hover,
+.experience-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.education-period,
+.experience-period {
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.education-period i,
+.experience-period i {
+    margin-right: 0.5rem;
+}
+
+/* Theme-aware text styling for about page */
+.about-stats .stat-item h3,
+.education-card h5,
+.education-card h6,
+.education-card p,
+.experience-card h5,
+.experience-card h6,
+.experience-card p {
+    color: var(--text-color) !important;
+}
+
+.education-card .text-muted,
+.experience-card .text-muted {
+    color: var(--text-light) !important;
+}
+</style>
+{% endblock %}

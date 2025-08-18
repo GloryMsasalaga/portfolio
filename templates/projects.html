@@ -1,0 +1,204 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load portfolio_extras %}
+
+{% block title %}Projects - Glory Lazaro{% endblock %}
+
+{% block content %}
+<section class="py-5" style="margin-top: 80px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mb-5">
+                <h1 class="display-4 fw-bold">My Projects</h1>
+                <p class="lead">A showcase of my recent work and contributions</p>
+            </div>
+        </div>
+        
+        <div class="row">
+            {% for project in projects %}
+            <div class="col-lg-6 mb-4">
+                <div class="project-card">
+                    <div class="project-image">
+                        {% if project.image %}
+                            <img src="{{ project.image.url }}" alt="{{ project.title }}" class="img-fluid">
+                        {% else %}
+                            <div class="project-placeholder">
+                                <i class="fas fa-code fa-3x"></i>
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="project-content">
+                        <h4>{{ project.title }}</h4>
+                        <p>{{ project.description }}</p>
+                        <div class="project-tech mb-3">
+                            {% for tech in project.technologies|split:"," %}
+                                <span class="badge bg-secondary">{{ tech|trim }}</span>
+                            {% endfor %}
+                        </div>
+                        <div class="project-links">
+                            {% if project.github_link %}
+                                <a href="{{ project.github_link }}" target="_blank" class="btn btn-outline-primary me-2">
+                                    <i class="fab fa-github"></i> View Code
+                                </a>
+                            {% endif %}
+                            {% if project.live_link %}
+                                <a href="{{ project.live_link }}" target="_blank" class="btn btn-primary">
+                                    <i class="fas fa-external-link-alt"></i> Live Demo
+                                </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+        {% if not projects %}
+        <div class="row">
+            <div class="col-12 text-center">
+                <div class="no-projects">
+                    <i class="fas fa-code fa-5x text-muted mb-4"></i>
+                    <h3>No Projects Yet</h3>
+                    <p class="text-muted">Projects will be displayed here once they are added to the database.</p>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</section>
+
+<!-- GitHub Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mb-5">
+                <h2 class="display-5 fw-bold">GitHub Activity</h2>
+                <p class="lead">Check out more of my work on GitHub</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 text-center mb-4">
+                <div class="github-stat">
+                    <i class="fab fa-github fa-3x text-primary mb-3"></i>
+                    <h4>30+</h4>
+                    <p>Repositories</p>
+                </div>
+            </div>
+            <div class="col-md-4 text-center mb-4">
+                <div class="github-stat">
+                    <i class="fas fa-star fa-3x text-primary mb-3"></i>
+                    <h4>7+</h4>
+                    <p>Stars Earned</p>
+                </div>
+            </div>
+            <div class="col-md-4 text-center mb-4">
+                <div class="github-stat">
+                    <i class="fas fa-code-branch fa-3x text-primary mb-3"></i>
+                    <h4>40+</h4>
+                    <p>Contributions</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 text-center">
+                <a href="https://github.com/glorymsasalaga" target="_blank" class="btn btn-primary btn-lg">
+                    <i class="fab fa-github"></i> Visit My GitHub
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<style>
+.project-card {
+    background: var(--card-bg);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
+    height: 100%;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+}
+
+.project-image {
+    height: 250px;
+    overflow: hidden;
+    position: relative;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.1);
+}
+
+.project-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+}
+
+.project-content {
+    padding: 2rem;
+}
+
+.project-tech .badge {
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.no-projects {
+    padding: 4rem 2rem;
+}
+
+.github-stat {
+    background: var(--card-bg);
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.github-stat:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.github-stat h4 {
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Theme-aware text styling for projects page */
+.project-card h4,
+.project-card p {
+    color: var(--text-color) !important;
+}
+
+.no-projects h3,
+.no-projects p {
+    color: var(--text-color) !important;
+}
+
+.github-stat p {
+    color: var(--text-color) !important;
+}
+</style>
+{% endblock %}

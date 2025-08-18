@@ -1,0 +1,174 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Order {{ service.title }} - Glory Lazaro{% endblock %}
+
+{% block content %}
+<section class="py-5" style="margin-top: 80px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mb-5">
+                <h1 class="display-4 fw-bold">Order Service</h1>
+                <p class="lead">{{ service.title }}</p>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="service-details">
+                    <div class="service-card">
+                        <div class="service-icon text-center mb-3">
+                            <i class="fas {{ service.icon }} fa-4x text-primary"></i>
+                        </div>
+                        <h3>{{ service.title }}</h3>
+                        <p>{{ service.description }}</p>
+                        {% if service.price %}
+                            <div class="service-price">
+                                <span class="h2 text-primary">${{ service.price }}</span>
+                                <span class="text-muted">/ project</span>
+                            </div>
+                        {% endif %}
+                        
+                        <div class="service-features">
+                            <h5>What's Included:</h5>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check text-success me-2"></i> Consultation and planning</li>
+                                <li><i class="fas fa-check text-success me-2"></i> Custom development</li>
+                                <li><i class="fas fa-check text-success me-2"></i> Testing and quality assurance</li>
+                                <li><i class="fas fa-check text-success me-2"></i> Deployment assistance</li>
+                                <li><i class="fas fa-check text-success me-2"></i> 30 days of support</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-6">
+                <div class="order-form-container">
+                    <h3 class="mb-4">Project Details</h3>
+                    <form id="service-order-form" method="POST">
+                        {% csrf_token %}
+                        <input type="hidden" name="service" value="{{ service.id }}">
+                        
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Full Name *</label>
+                            <input type="text" class="form-control" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email Address *</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="requirements" class="form-label">Project Requirements *</label>
+                            <textarea class="form-control" id="requirements" name="requirements" rows="8" required 
+                                      placeholder="Please describe your project requirements in detail..."></textarea>
+                            <div class="form-text">
+                                Include as much detail as possible about your project goals, features needed, 
+                                timeline, and any specific requirements.
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="terms" required>
+                                <label class="form-check-label" for="terms">
+                                    I agree to the <a href="#" class="text-primary">terms and conditions</a> *
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-lg w-100">
+                            <i class="fas fa-paper-plane"></i> Submit Order Request
+                        </button>
+                    </form>
+                    
+                    <div class="order-info mt-4">
+                        <div class="alert alert-info">
+                            <i class="fas fa-info-circle me-2"></i>
+                            <strong>Next Steps:</strong> After submitting this form, I'll review your requirements 
+                            and get back to you within 24 hours with a detailed proposal and timeline.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<style>
+.service-details .service-card {
+    background: var(--card-bg);
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+    height: 100%;
+}
+
+.service-price {
+    padding: 1rem 0;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    margin: 1.5rem 0;
+}
+
+.service-features {
+    margin-top: 2rem;
+}
+
+.service-features ul li {
+    padding: 0.5rem 0;
+}
+
+.order-form-container {
+    background: var(--card-bg);
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+}
+
+.form-control {
+    border-radius: 10px;
+    border: 2px solid var(--border-color);
+    padding: 0.75rem 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(99, 102, 241, 0.25);
+}
+
+.form-text {
+    color: var(--text-light);
+    font-size: 0.875rem;
+}
+
+.order-info .alert {
+    border-radius: 10px;
+}
+
+/* Theme-aware text styling for service order page */
+.service-card h3,
+.service-card p,
+.service-card h5,
+.service-card li,
+.order-form-container h3 {
+    color: var(--text-color) !important;
+}
+
+.form-control {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+}
+
+.form-control::placeholder {
+    color: var(--text-light);
+}
+</style>
+{% endblock %}

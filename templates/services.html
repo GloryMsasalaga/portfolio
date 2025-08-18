@@ -1,0 +1,256 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Services - Glory Lazaro{% endblock %}
+
+{% block content %}
+<section class="py-5" style="margin-top: 80px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mb-5">
+                <h1 class="display-4 fw-bold">My Services</h1>
+                <p class="lead">Professional services tailored to your needs</p>
+            </div>
+        </div>
+        
+        <div class="row">
+            {% for service in services %}
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="service-card text-center">
+                    <div class="service-icon">
+                        <i class="fas {{ service.icon }} fa-3x text-primary"></i>
+                    </div>
+                    <h4>{{ service.title }}</h4>
+                    <p>{{ service.description }}</p>
+                    {% if service.price %}
+                        <div class="service-price">
+                            <span class="h3 text-primary">${{ service.price }}</span>
+                            <span class="text-muted">/ project</span>
+                        </div>
+                    {% endif %}
+                    <a href="{% url 'service_order' service.id %}" class="btn btn-primary">
+                        <i class="fas fa-shopping-cart"></i> Order Service
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+        {% if not services %}
+        <div class="row">
+            <div class="col-12 text-center">
+                <div class="no-services">
+                    <i class="fas fa-tools fa-5x text-muted mb-4"></i>
+                    <h3>No Services Available</h3>
+                    <p class="text-muted">Services will be displayed here once they are added to the database.</p>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</section>
+
+<!-- Process Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mb-5">
+                <h2 class="display-5 fw-bold">My Process</h2>
+                <p class="lead">How I work with clients</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 text-center mb-4">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h5>Discovery</h5>
+                    <p>Understanding your requirements and project goals</p>
+                </div>
+            </div>
+            <div class="col-md-3 text-center mb-4">
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h5>Planning</h5>
+                    <p>Creating a detailed project plan and timeline</p>
+                </div>
+            </div>
+            <div class="col-md-3 text-center mb-4">
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h5>Development</h5>
+                    <p>Building your solution with regular updates</p>
+                </div>
+            </div>
+            <div class="col-md-3 text-center mb-4">
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h5>Delivery</h5>
+                    <p>Testing, deployment, and ongoing support</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mb-5">
+                <h2 class="display-5 fw-bold">Frequently Asked Questions</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="accordion" id="faqAccordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                What technologies do you specialize in?
+                            </button>
+                        </h2>
+                        <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                I specialize in Python/Django for backend development, React/JavaScript for frontend, 
+                                and various AI/ML frameworks like TensorFlow and PyTorch. I also work with cloud 
+                                platforms like AWS and deployment tools like Docker.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                How long does a typical project take?
+                            </button>
+                        </h2>
+                        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Project timelines vary depending on complexity and scope. Simple websites take 2-4 weeks, 
+                                while complex applications with AI features can take 2-6 months. I provide detailed 
+                                timelines during the planning phase.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                Do you provide ongoing support?
+                            </button>
+                        </h2>
+                        <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Yes! I provide ongoing support and maintenance services. This includes bug fixes, 
+                                updates, and feature enhancements. Support packages can be customized based on your needs.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                What's your payment structure?
+                            </button>
+                        </h2>
+                        <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                I typically work with a 50% upfront payment and 50% upon completion for smaller projects. 
+                                For larger projects, I can arrange milestone-based payments. All pricing is discussed 
+                                and agreed upon before work begins.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<style>
+.service-card {
+    background: var(--card-bg);
+    border-radius: 15px;
+    padding: 2.5rem;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
+    height: 100%;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+}
+
+.service-icon {
+    margin-bottom: 1.5rem;
+}
+
+.service-price {
+    margin: 1.5rem 0;
+}
+
+.no-services {
+    padding: 4rem 2rem;
+}
+
+.process-step {
+    padding: 1.5rem;
+}
+
+.step-number {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0 auto 1rem;
+}
+
+.accordion-item {
+    border: 1px solid var(--border-color);
+    border-radius: 10px !important;
+    margin-bottom: 1rem;
+    overflow: hidden;
+}
+
+.accordion-button {
+    background: var(--card-bg);
+    color: var(--text-color);
+    border: none;
+    font-weight: 600;
+}
+
+.accordion-button:not(.collapsed) {
+    background: var(--primary-color);
+    color: white;
+}
+
+.accordion-body {
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+/* Ensure all paragraphs use theme-aware colors */
+p {
+    color: var(--text-color) !important;
+}
+
+.text-muted {
+    color: var(--text-light) !important;
+}
+
+.service-card p {
+    color: var(--text-color) !important;
+}
+
+.no-services p {
+    color: var(--text-light) !important;
+}
+</style>
+{% endblock %}
