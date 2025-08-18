@@ -6,13 +6,11 @@ class Command(BaseCommand):
     help = 'Load updated data for production deployment'
 
     def handle(self, *args, **options):
-        self.stdout.write('Loading updated portfolio data...')
+        self.stdout.write('Loading all updated portfolio data from Django admin...')
         
-        # Load portfolio data, updated services data, and about data
+        # Load complete portfolio data (all models)
         data_files = [
-            'portfolio_data.json', 
-            'updated_services_data.json',
-            'about_data.json'
+            'complete_portfolio_data.json',  # All current data from admin
         ]
         
         for data_file in data_files:
@@ -31,3 +29,7 @@ class Command(BaseCommand):
                 self.stdout.write(
                     self.style.WARNING(f'Data file {data_file} not found')
                 )
+                
+        self.stdout.write(
+            self.style.SUCCESS('✅ All Django admin data synchronized!')
+        )
