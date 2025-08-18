@@ -51,12 +51,12 @@
 </section>
 
 <!-- Process Section -->
-<section class="py-5 bg-light">
+<section class="py-5" style="background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);">
     <div class="container">
         <div class="row">
             <div class="col-12 text-center mb-5">
-                <h2 class="display-5 fw-bold">My Process</h2>
-                <p class="lead">How I work with clients</p>
+                <h2 class="display-5 fw-bold" style="color: #000000;">My Process</h2>
+                <p class="lead" style="color: #000000;">How I work with clients</p>
             </div>
         </div>
         <div class="row">
@@ -195,21 +195,50 @@
 }
 
 .process-step {
-    padding: 1.5rem;
+    padding: 2rem 1.5rem;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border: 2px solid #f0f0f0;
+    transition: all 0.3s ease;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.process-step:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.15);
+    border-color: var(--primary-color);
+}
+
+.process-step h5 {
+    color: #2d3748 !important;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.process-step p {
+    color: #4a5568 !important;
+    font-size: 0.95rem;
+    line-height: 1.6;
 }
 
 .step-number {
-    width: 60px;
-    height: 60px;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
     color: white;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: bold;
-    margin: 0 auto 1rem;
+    margin: 0 auto 1.5rem;
+    box-shadow: 0 4px 10px rgba(99, 102, 241, 0.3);
+    position: relative;
+    z-index: 2;
 }
 
 .accordion-item {
