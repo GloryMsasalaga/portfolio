@@ -68,6 +68,10 @@ def contact(request):
     
     return render(request, 'contact.html')
 
+def terms(request):
+    """View for terms and conditions page."""
+    return render(request, 'terms.html')
+
 def service_order(request, service_id):
     """View for service order page."""
     service = get_object_or_404(Service, id=service_id)
