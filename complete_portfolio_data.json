@@ -91,6 +91,17 @@
   }
 },
 {
+  "model": "portfolio.contact",
+  "pk": 1,
+  "fields": {
+    "name": "Glory Lazaro",
+    "email": "glorymsasalaga@gmail.com",
+    "subject": "WEBSITE DESIGN",
+    "message": "sasasasassas",
+    "created_at": "2025-08-19T06:02:15.921Z"
+  }
+},
+{
   "model": "portfolio.service",
   "pk": 1,
   "fields": {
@@ -148,6 +159,20 @@
     "description": "CI/CD pipeline setup, cloud deployment, and infrastructure management.",
     "price": "79.00",
     "icon": "fa-cloud"
+  }
+},
+{
+  "model": "portfolio.serviceorder",
+  "pk": 1,
+  "fields": {
+    "service": 2,
+    "name": "Glory Lazaro",
+    "email": "glorymsasalaga@gmail.com",
+    "requirements": "ai model for observability",
+    "timeline": "3-4weeks",
+    "budget": "500-1500",
+    "created_at": "2025-08-19T06:03:23.682Z",
+    "status": "quoted"
   }
 },
 {

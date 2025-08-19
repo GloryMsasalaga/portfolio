@@ -1,5 +1,12 @@
 script: |
+  echo "=== Starting deployment ==="
+  python manage.py makemigrations --dry-run --verbosity=2
   python manage.py makemigrations
-  python manage.py migrate
+  echo "=== Running migrations ==="
+  python manage.py migrate --verbosity=2
+  echo "=== Showing migration status ==="
+  python manage.py showmigrations
+  echo "=== Loading updated data ==="
   python manage.py load_updated_data
+  echo "=== Deployment complete ==="
 run: gunicorn portfolio_project.wsgi:application --bind 0.0.0.0:8000

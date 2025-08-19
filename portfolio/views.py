@@ -80,17 +80,27 @@ def service_order(request, service_id):
         name = request.POST.get('name')
         email = request.POST.get('email')
         requirements = request.POST.get('requirements')
-        timeline = request.POST.get('timeline')
-        budget = request.POST.get('budget')
+        timeline = request.POST.get('timeline', '')  # Default to empty string
+        budget = request.POST.get('budget', '')      # Default to empty string
         
-        order = ServiceOrder.objects.create(
-            service=service,
-            name=name,
-            email=email,
-            requirements=requirements,
-            timeline=timeline,
-            budget=budget
-        )
+        # Create order with error handling for new fields
+        try:
+            order = ServiceOrder.objects.create(
+                service=service,
+                name=name,
+                email=email,
+                requirements=requirements,
+                timeline=timeline,
+                budget=budget
+            )
+        except Exception as e:
+            # Fallback for old database schema
+            order = ServiceOrder.objects.create(
+                service=service,
+                name=name,
+                email=email,
+                requirements=requirements
+            )
         
         messages.success(request, 'Your quote request has been submitted successfully! I will review your requirements and get back to you with a custom proposal.')
         return redirect('services')
@@ -134,14 +144,24 @@ def service_order_api(request):
         if service_id and name and email and requirements:
             try:
                 service = Service.objects.get(id=service_id)
-                ServiceOrder.objects.create(
-                    service=service,
-                    name=name,
-                    email=email,
-                    requirements=requirements,
-                    timeline=timeline,
-                    budget=budget
-                )
+                # Try to create with new fields first
+                try:
+                    ServiceOrder.objects.create(
+                        service=service,
+                        name=name,
+                        email=email,
+                        requirements=requirements,
+                        timeline=timeline,
+                        budget=budget
+                    )
+                except Exception as e:
+                    # Fallback for old database schema
+                    ServiceOrder.objects.create(
+                        service=service,
+                        name=name,
+                        email=email,
+                        requirements=requirements
+                    )
                 return JsonResponse({'status': 'success', 'message': 'Your quote request has been submitted successfully! I will review your requirements and get back to you with a custom proposal.'})
             except Service.DoesNotExist:
                 return JsonResponse({'status': 'error', 'message': 'Service not found.'})
