@@ -159,13 +159,13 @@
                     </div>
                     <h5>{{ service.title }}</h5>
                     <p>{{ service.description }}</p>
-                    {% if service.price %}
-                        <div class="service-price">
-                            <span class="h4 text-primary">${{ service.price }}</span>
-                        </div>
-                    {% endif %}
+                    <div class="pricing-info mb-2">
+                        <small class="text-muted">
+                            <i class="fas fa-handshake"></i> Custom pricing available
+                        </small>
+                    </div>
                     <a href="{% url 'service_order' service.id %}" class="btn btn-primary">
-                        <i class="fas fa-shopping-cart"></i> Order Now
+                        <i class="fas fa-comments"></i> Get Quote
                     </a>
                 </div>
             </div>

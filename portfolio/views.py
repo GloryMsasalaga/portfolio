@@ -76,15 +76,19 @@ def service_order(request, service_id):
         name = request.POST.get('name')
         email = request.POST.get('email')
         requirements = request.POST.get('requirements')
+        timeline = request.POST.get('timeline')
+        budget = request.POST.get('budget')
         
         order = ServiceOrder.objects.create(
             service=service,
             name=name,
             email=email,
-            requirements=requirements
+            requirements=requirements,
+            timeline=timeline,
+            budget=budget
         )
         
-        messages.success(request, 'Your service order has been submitted successfully!')
+        messages.success(request, 'Your quote request has been submitted successfully! I will review your requirements and get back to you with a custom proposal.')
         return redirect('services')
     
     return render(request, 'service_order.html', {'service': service})
@@ -120,6 +124,8 @@ def service_order_api(request):
         name = request.POST.get('name')
         email = request.POST.get('email')
         requirements = request.POST.get('requirements')
+        timeline = request.POST.get('timeline')
+        budget = request.POST.get('budget')
         
         if service_id and name and email and requirements:
             try:
@@ -128,9 +134,11 @@ def service_order_api(request):
                     service=service,
                     name=name,
                     email=email,
-                    requirements=requirements
+                    requirements=requirements,
+                    timeline=timeline,
+                    budget=budget
                 )
-                return JsonResponse({'status': 'success', 'message': 'Your service order has been submitted successfully!'})
+                return JsonResponse({'status': 'success', 'message': 'Your quote request has been submitted successfully! I will review your requirements and get back to you with a custom proposal.'})
             except Service.DoesNotExist:
                 return JsonResponse({'status': 'error', 'message': 'Service not found.'})
         else:

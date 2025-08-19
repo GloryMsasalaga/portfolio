@@ -8,8 +8,13 @@
     <div class="container">
         <div class="row">
             <div class="col-12 text-center mb-5">
-                <h1 class="display-4 fw-bold">Order Service</h1>
+                <h1 class="display-4 fw-bold">Request Custom Quote</h1>
                 <p class="lead">{{ service.title }}</p>
+                <div class="quote-info">
+                    <span class="badge bg-success fs-6">
+                        <i class="fas fa-handshake"></i> Flexible pricing based on your needs
+                    </span>
+                </div>
             </div>
         </div>
         
@@ -22,12 +27,6 @@
                         </div>
                         <h3>{{ service.title }}</h3>
                         <p>{{ service.description }}</p>
-                        {% if service.price %}
-                            <div class="service-price">
-                                <span class="h2 text-primary">${{ service.price }}</span>
-                                <span class="text-muted">/ project</span>
-                            </div>
-                        {% endif %}
                         
                         <div class="service-features">
                             <h5>What's Included:</h5>
@@ -60,13 +59,43 @@
                             <input type="email" class="form-control" id="email" name="email" required>
                         </div>
                         
-                        <div class="mb-4">
+                        <div class="mb-3">
                             <label for="requirements" class="form-label">Project Requirements *</label>
-                            <textarea class="form-control" id="requirements" name="requirements" rows="8" required 
+                            <textarea class="form-control" id="requirements" name="requirements" rows="6" required 
                                       placeholder="Please describe your project requirements in detail..."></textarea>
                             <div class="form-text">
                                 Include as much detail as possible about your project goals, features needed, 
-                                timeline, and any specific requirements.
+                                and any specific requirements.
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="timeline" class="form-label">Preferred Timeline</label>
+                            <select class="form-control" id="timeline" name="timeline">
+                                <option value="">Select timeline (optional)</option>
+                                <option value="asap">ASAP - Rush job</option>
+                                <option value="1-2weeks">1-2 weeks</option>
+                                <option value="3-4weeks">3-4 weeks</option>
+                                <option value="1-2months">1-2 months</option>
+                                <option value="3+months">3+ months</option>
+                                <option value="flexible">Flexible timeline</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="budget" class="form-label">Budget Range</label>
+                            <select class="form-control" id="budget" name="budget">
+                                <option value="">Select budget range (optional)</option>
+                                <option value="under-500">Under $500</option>
+                                <option value="500-1500">$500 - $1,500</option>
+                                <option value="1500-3000">$1,500 - $3,000</option>
+                                <option value="3000-5000">$3,000 - $5,000</option>
+                                <option value="5000-10000">$5,000 - $10,000</option>
+                                <option value="10000+">$10,000+</option>
+                                <option value="discuss">Let's discuss</option>
+                            </select>
+                            <div class="form-text">
+                                This helps me provide a more accurate quote. Final pricing will be discussed based on your specific needs.
                             </div>
                         </div>
                         
@@ -80,7 +109,7 @@
                         </div>
                         
                         <button type="submit" class="btn btn-primary btn-lg w-100">
-                            <i class="fas fa-paper-plane"></i> Submit Order Request
+                            <i class="fas fa-handshake"></i> Request Custom Quote
                         </button>
                     </form>
                     

@@ -50,9 +50,14 @@ class ServiceOrder(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField()
     requirements = models.TextField()
+    timeline = models.CharField(max_length=50, blank=True, null=True, help_text="Preferred project timeline")
+    budget = models.CharField(max_length=50, blank=True, null=True, help_text="Budget range")
     created_at = models.DateTimeField(auto_now_add=True)
     status = models.CharField(max_length=20, choices=[
         ('pending', 'Pending'),
+        ('quoted', 'Quote Sent'),
+        ('negotiating', 'Negotiating'),
+        ('approved', 'Approved'),
         ('in_progress', 'In Progress'),
         ('completed', 'Completed'),
         ('cancelled', 'Cancelled')
