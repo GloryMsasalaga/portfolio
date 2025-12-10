@@ -13,6 +13,7 @@
     --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
 }
 
+/* Dark Theme */
 [data-theme="dark"] {
     --primary-color: #818cf8;
     --secondary-color: #a78bfa;
@@ -23,6 +24,23 @@
     --bg-dark: #0f172a;
     --card-bg: #1f2937;
     --border-color: #374151;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+}
+
+/* Light Theme */
+[data-theme="light"] {
+    --primary-color: #4f46e5;
+    --secondary-color: #7c3aed;
+    --accent-color: #0891b2;
+    --text-color: #111827;
+    --text-light: #4b5563;
+    --bg-color: #f9fafb;
+    --bg-dark: #1f2937;
+    --card-bg: #ffffff;
+    --border-color: #d1d5db;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
 }
 
 * {
@@ -40,7 +58,22 @@ body {
 }
 
 /* Global typography styling for theme compatibility */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2 {
+    color:#111827 !important;
+}
+h3,
+h4,
+h5,
+h6 {
+    color: var(--text-color) !important;
+}
+
+/* Section titles - ensure visibility in all themes */
+.container h2,
+.container h3,
+section h2,
+section h3 {
     color: var(--text-color) !important;
 }
 
@@ -125,6 +158,8 @@ p {
     width: 100%;
 }
 
+
+
 /* Theme Switcher */
 .theme-switcher {
     position: fixed;
@@ -146,6 +181,7 @@ p {
     justify-content: center;
     box-shadow: var(--shadow-lg);
     transition: all 0.3s ease;
+    cursor: pointer;
 }
 
 #theme-toggle:hover {
@@ -214,18 +250,25 @@ p {
 }
 
 .hero-text h1 {
+    color: #ffffff !important;
+    animation: fadeInUp 1s ease-out;
+}
+
+.hero-text h1 span {
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    animation: fadeInUp 1s ease-out;
 }
 
 .hero-text h2 {
+    color: #ffffff !important;
     animation: fadeInUp 1s ease-out 0.2s both;
 }
 
 .hero-text p {
+    color: #ffffff !important;
+    opacity: 0.95;
     animation: fadeInUp 1s ease-out 0.4s both;
 }
 
@@ -268,9 +311,8 @@ p {
 
 .skill-category {
     font-size: 0.875rem;
-    color: var(--text-light);
     background: var(--primary-color);
-    color: white;
+    color: #ffffff !important;
     padding: 0.25rem 0.75rem;
     border-radius: 20px;
     font-weight: 500;
@@ -408,7 +450,7 @@ p {
 }
 
 .footer h5 {
-    color: var(--text-color);
+    color: #ffffff !important;
     margin-bottom: 1rem;
 }
 
@@ -416,6 +458,10 @@ p {
     color: var(--text-light);
     text-decoration: none;
     transition: color 0.3s ease;
+}
+
+.footer p {
+    color: var(--text-light) !important;
 }
 
 .footer a:hover {
@@ -446,6 +492,7 @@ p {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -453,9 +500,12 @@ p {
 }
 
 @keyframes float {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateY(0px);
     }
+
     50% {
         transform: translateY(-20px);
     }
@@ -463,6 +513,22 @@ p {
 
 .floating {
     animation: float 6s ease-in-out infinite;
+}
+
+/* Theme-specific adjustments */
+[data-theme="dark"] .navbar {
+    background: rgba(15, 23, 42, 0.95);
+}
+
+[data-theme="dark"] .form-control {
+    background: var(--card-bg);
+    border-color: var(--border-color);
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .form-control:focus {
+    background: var(--card-bg);
+    color: var(--text-color);
 }
 
 /* Responsive Design */
@@ -489,9 +555,7 @@ p {
         width: 40px;
         height: 40px;
     }
-}
-
-/* Loading Animation */
+}/* Loading Animation */
 .loading {
     display: flex;
     justify-content: center;
@@ -509,8 +573,13 @@ p {
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 /* Form Styles */
@@ -534,20 +603,4 @@ p {
     font-weight: 600;
     color: var(--text-color);
     margin-bottom: 0.5rem;
-}
-
-/* Dark theme adjustments */
-[data-theme="dark"] .navbar {
-    background: rgba(15, 23, 42, 0.95);
-}
-
-[data-theme="dark"] .form-control {
-    background: var(--card-bg);
-    border-color: var(--border-color);
-    color: var(--text-color);
-}
-
-[data-theme="dark"] .form-control:focus {
-    background: var(--card-bg);
-    color: var(--text-color);
 }
