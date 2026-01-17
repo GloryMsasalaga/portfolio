@@ -14,19 +14,6 @@
 },
 {
   "model": "portfolio.project",
-  "pk": 2,
-  "fields": {
-    "title": "E-commerce Analytics Dashboard",
-    "description": "A comprehensive analytics dashboard for e-commerce businesses with real-time data visualization and machine learning insights.",
-    "technologies": "Python, Django, Chart.js, Pandas, Scikit-learn, Redis",
-    "github_link": "https://github.com/Veryniceglory/ecommerce-analytics",
-    "live_link": "https://analytics.glorylazaro.dev",
-    "image": "",
-    "created_at": "2025-08-18T14:45:27.813Z"
-  }
-},
-{
-  "model": "portfolio.project",
   "pk": 3,
   "fields": {
     "title": "Smart Home IoT System",
@@ -88,6 +75,32 @@
     "live_link": null,
     "image": "",
     "created_at": "2025-08-18T15:55:22.566Z"
+  }
+},
+{
+  "model": "portfolio.project",
+  "pk": 9,
+  "fields": {
+    "title": "Masada Intertrade Company",
+    "description": "A comprehensive fintech system designed for Masada Intertrade, streamlining financial operations and trade management.",
+    "technologies": "Django, React, PostgreSQL, Docker, AWS",
+    "github_link": "",
+    "live_link": "",
+    "image": "",
+    "created_at": "2026-01-17T11:00:51.856Z"
+  }
+},
+{
+  "model": "portfolio.project",
+  "pk": 10,
+  "fields": {
+    "title": "Astraea",
+    "description": "A professional accounting and auditing system providing robust financial tracking, reporting, and compliance tools.",
+    "technologies": "Python, Django REST Framework, Vue.js, PostgreSQL, Celery",
+    "github_link": "",
+    "live_link": "",
+    "image": "",
+    "created_at": "2026-01-17T11:00:51.866Z"
   }
 },
 {
@@ -181,7 +194,8 @@
   "fields": {
     "name": "Python",
     "proficiency": 95,
-    "category": "Programming Languages"
+    "category": "Programming Languages",
+    "icon_class": "fab fa-python"
   }
 },
 {
@@ -190,7 +204,8 @@
   "fields": {
     "name": "JavaScript",
     "proficiency": 90,
-    "category": "Programming Languages"
+    "category": "Programming Languages",
+    "icon_class": "fab fa-js"
   }
 },
 {
@@ -199,7 +214,8 @@
   "fields": {
     "name": "Django",
     "proficiency": 92,
-    "category": "Web Frameworks"
+    "category": "Web Frameworks",
+    "icon_class": "fab fa-python"
   }
 },
 {
@@ -208,16 +224,8 @@
   "fields": {
     "name": "React",
     "proficiency": 88,
-    "category": "Frontend Frameworks"
-  }
-},
-{
-  "model": "portfolio.skill",
-  "pk": 5,
-  "fields": {
-    "name": "Machine Learning",
-    "proficiency": 85,
-    "category": "AI/ML"
+    "category": "Frontend Frameworks",
+    "icon_class": "fab fa-react"
   }
 },
 {
@@ -226,7 +234,8 @@
   "fields": {
     "name": "TensorFlow",
     "proficiency": 80,
-    "category": "AI/ML"
+    "category": "AI/ML",
+    "icon_class": "fas fa-brain"
   }
 },
 {
@@ -235,7 +244,8 @@
   "fields": {
     "name": "PostgreSQL",
     "proficiency": 85,
-    "category": "Databases"
+    "category": "Databases",
+    "icon_class": "fas fa-database"
   }
 },
 {
@@ -244,7 +254,8 @@
   "fields": {
     "name": "Docker",
     "proficiency": 82,
-    "category": "DevOps"
+    "category": "DevOps",
+    "icon_class": "fab fa-docker"
   }
 },
 {
@@ -253,7 +264,8 @@
   "fields": {
     "name": "AWS",
     "proficiency": 78,
-    "category": "Cloud Platforms"
+    "category": "Cloud Platforms",
+    "icon_class": "fab fa-aws"
   }
 },
 {
@@ -262,7 +274,8 @@
   "fields": {
     "name": "Git",
     "proficiency": 90,
-    "category": "Tools"
+    "category": "Tools",
+    "icon_class": "fab fa-git-alt"
   }
 },
 {
@@ -271,7 +284,78 @@
   "fields": {
     "name": "HTML",
     "proficiency": 97,
-    "category": "Frontend Frameworks"
+    "category": "Frontend Frameworks",
+    "icon_class": "fab fa-html5"
+  }
+},
+{
+  "model": "portfolio.skill",
+  "pk": 12,
+  "fields": {
+    "name": "Scikit-learn",
+    "proficiency": 85,
+    "category": "Machine Learning",
+    "icon_class": "fas fa-brain"
+  }
+},
+{
+  "model": "portfolio.skill",
+  "pk": 13,
+  "fields": {
+    "name": "Pandas",
+    "proficiency": 90,
+    "category": "Data Science",
+    "icon_class": "fas fa-table"
+  }
+},
+{
+  "model": "portfolio.skill",
+  "pk": 14,
+  "fields": {
+    "name": "NumPy",
+    "proficiency": 88,
+    "category": "Data Science",
+    "icon_class": "fas fa-layer-group"
+  }
+},
+{
+  "model": "portfolio.skill",
+  "pk": 15,
+  "fields": {
+    "name": "Seaborn",
+    "proficiency": 85,
+    "category": "Data Visualization",
+    "icon_class": "fas fa-chart-area"
+  }
+},
+{
+  "model": "portfolio.skill",
+  "pk": 16,
+  "fields": {
+    "name": "Matplotlib",
+    "proficiency": 85,
+    "category": "Data Visualization",
+    "icon_class": "fas fa-chart-bar"
+  }
+},
+{
+  "model": "portfolio.skill",
+  "pk": 17,
+  "fields": {
+    "name": "Flutter",
+    "proficiency": 80,
+    "category": "Mobile Development",
+    "icon_class": "fas fa-mobile-alt"
+  }
+},
+{
+  "model": "portfolio.skill",
+  "pk": 18,
+  "fields": {
+    "name": "MongoDB",
+    "proficiency": 82,
+    "category": "Databases",
+    "icon_class": "fas fa-database"
   }
 },
 {

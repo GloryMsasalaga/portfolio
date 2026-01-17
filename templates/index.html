@@ -2,195 +2,130 @@
 {% load static %}
 {% load portfolio_extras %}
 
-{% block title %}VeryniceGlory Lazaro - Software Developer & AI/ML Engineer{% endblock %}
-
-{% block head_content %}
-<style>
-    #hero-canvas {
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: -1;
-    }
-</style>
-{% endblock %}
+{% block title %}VeryniceGlory | AI Engineer & Innovator{% endblock %}
 
 {% block content %}
-<!-- Hero Section with 3D Background -->
-<section id="hero" class="hero-section">
-    <canvas id="hero-canvas"></canvas>
-    <div class="hero-content">
-        <div class="container">
-            <div class="row align-items-center min-vh-100">
-                <div class="col-lg-6">
-                    <div class="hero-text">
-                        <h1 class="display-4 fw-bold mb-4">
-                            Hi, I'm <span class="text-primary">Glory (Verynice) Lazaro</span>
-                        </h1>
-                        <h2 class="h4 mb-4 text-secondary">Software Developer & AI/ML Engineer</h2>
-                        <p class="lead mb-5">
-                            Passionate about creating innovative solutions using cutting-edge technology. 
-                            I specialize in full-stack development and artificial intelligence.
-                        </p>
-                        <div class="hero-buttons">
-                            <a href="{% url 'projects' %}" class="btn btn-primary btn-lg me-3">
-                                <i class="fas fa-code"></i> View My Work
-                            </a>
-                            <a href="{% url 'contact' %}" class="btn btn-outline-primary btn-lg">
-                                <i class="fas fa-envelope"></i> Get In Touch
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="hero-3d-container">
-                        <canvas id="profile-canvas"></canvas>
-                    </div>
+<!-- Parallax Hero -->
+<div class="hero-wrapper">
+    <div class="hero-bg-glow"></div>
+    <div class="container text-center text-white" style="position: relative; z-index: 10;">
+        <h1 class="hero-title fw-bold" id="hero-text">
+            AI Engineer • Web Developer<br>
+            <span class="text-purple">Innovator</span>
+        </h1>
+        <p class="hero-subtitle mb-5" id="hero-subtitle">Building the future, one line of code at a time.</p>
+
+        <div id="hero-btn">
+            <a href="{% url 'projects' %}" class="btn btn-neon me-3">Explore Work</a>
+            <a href="{% url 'contact' %}" class="btn btn-outline-light rounded-pill px-4 py-3 fw-bold">Contact Me</a>
+        </div>
+    </div>
+    
+    <!-- Curved Shape at Bottom -->
+    <div class="hero-curve-shape">
+        <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
+            <path class="curve-path" d="M0,160 Q360,60 720,160 T1440,160 L1440,320 L0,320 Z" fill="url(#curveGradient)"></path>
+            <defs>
+                <linearGradient id="curveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:#6a00ff;stop-opacity:0.3" />
+                    <stop offset="50%" style="stop-color:#b829ea;stop-opacity:0.5" />
+                    <stop offset="100%" style="stop-color:#7f3cff;stop-opacity:0.3" />
+                </linearGradient>
+            </defs>
+        </svg>
+        <div class="curve-animation-placeholder">
+            <div class="pulse-circle"></div>
+            <div class="pulse-circle pulse-delay-1"></div>
+            <div class="pulse-circle pulse-delay-2"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Main Content Wrapper (GSAP Flip Cards) -->
+<div class="content-wrapper container">
+
+    <!-- About Card -->
+    <div class="section-spacer"></div>
+    <div class="glass-card" id="about">
+        <div class="row align-items-center">
+            <div class="col-lg-12">
+                <h2 class="section-title align-content-center">About Me</h2>
+                <p class="lead text-muted mb-4">
+                    I'm Glory Lazaro (VeryNiceGlory), a passionate software developer and AI/ML engineer based in
+                    Tanzania.
+                    I blend creative design with robust engineering to build web applications that feel alive.
+                    My mission is to solve real-world problems through innovative technology.
+                </p>
+                <div class="d-flex flex-wrap gap-2">
+                    <div class="skill-tag"><i class="fas fa-brain"></i> AI Research</div>
+                    <div class="skill-tag"><i class="fas fa-code"></i> Full Stack</div>
+                    <div class="skill-tag"><i class="fas fa-server"></i> System Design</div>
                 </div>
             </div>
         </div>
     </div>
-</section>
 
-<!-- Skills Section -->
-<section id="skills" class="py-5 bg-light">
-    <div class="container">
-        <div class="row">
-            <div class="col-12 text-center mb-5">
-                <h2 class="display-5 fw-bold">Technical Skills</h2>
-                <p class="lead">Technologies I work with</p>
-            </div>
-        </div>
-        <div class="row">
+    <!-- Skills Card -->
+    <div class="section-spacer"></div>
+    <div class="glass-card" id="skills">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="row text-center">
             {% for skill in skills %}
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="skill-card">
-                    <div class="skill-info">
-                        <h5>{{ skill.name }}</h5>
-                        <span class="skill-category">{{ skill.category }}</span>
-                    </div>
-                    <div class="skill-progress">
-                        <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: {{ skill.proficiency }}%" 
-                                 aria-valuenow="{{ skill.proficiency }}" aria-valuemin="0" aria-valuemax="100">
-                                {{ skill.proficiency }}%
-                            </div>
-                        </div>
-                    </div>
+            <div class="col-md-3 col-6 mb-4">
+                <div class="skill-tag w-100 justify-content-center">
+                    <i class="{{ skill.icon_class }} me-2"></i> {{ skill.name }}
                 </div>
             </div>
             {% endfor %}
         </div>
     </div>
-</section>
 
-<!-- Featured Projects Section -->
-<section id="featured-projects" class="py-5">
-    <div class="container">
-        <div class="row">
-            <div class="col-12 text-center mb-5">
-                <h2 class="display-5 fw-bold">Featured Projects</h2>
-                <p class="lead">Some of my recent work</p>
-            </div>
-        </div>
+    <!-- Projects Card -->
+    <div class="section-spacer"></div>
+    <div class="glass-card" id="projects">
+        <h2 class="section-title mb-5">Featured Works</h2>
         <div class="row">
             {% for project in projects %}
             <div class="col-lg-4 mb-4">
-                <div class="project-card">
-                    <div class="project-image">
+                <div class="project-mini-card">
+                    <div class="project-img">
                         {% if project.image %}
-                            <img src="{{ project.image.url }}" alt="{{ project.title }}" class="img-fluid">
+                        <img src="{{ project.image.url }}" alt="{{ project.title }}"
+                            style="width:100%; height:100%; object-fit:cover;">
                         {% else %}
-                            <div class="project-placeholder">
-                                <i class="fas fa-code fa-3x"></i>
-                            </div>
+                        <i class="fas fa-code fa-3x"></i>
                         {% endif %}
                     </div>
-                    <div class="project-content">
-                        <h5>{{ project.title }}</h5>
-                        <p>{{ project.description|truncatewords:20 }}</p>
-                        <div class="project-tech">
-                            {% for tech in project.technologies|split:"," %}
-                                <span class="badge bg-secondary">{{ tech|trim }}</span>
-                            {% endfor %}
-                        </div>
-                        <div class="project-links mt-3">
-                            {% if project.github_link %}
-                                <a href="{{ project.github_link }}" target="_blank" class="btn btn-outline-primary btn-sm">
-                                    <i class="fab fa-github"></i> Code
-                                </a>
-                            {% endif %}
-                            {% if project.live_link %}
-                                <a href="{{ project.live_link }}" target="_blank" class="btn btn-primary btn-sm">
-                                    <i class="fas fa-external-link-alt"></i> Live Demo
-                                </a>
-                            {% endif %}
-                        </div>
+                    <div class="project-body">
+                        <h5 class="fw-bold text-white">{{ project.title }}</h5>
+                        <p class="text-muted small">{{ project.description|truncatewords:15 }}</p>
+                        <a href="{% if project.live_link %}{{ project.live_link }}{% else %}#{% endif %}"
+                            class="text-purple fw-bold small">
+                            View Project <i class="fas fa-arrow-right ms-1"></i>
+                        </a>
                     </div>
                 </div>
             </div>
             {% endfor %}
         </div>
-        <div class="row">
-            <div class="col-12 text-center">
-                <a href="{% url 'projects' %}" class="btn btn-primary btn-lg">
-                    <i class="fas fa-eye"></i> View All Projects
-                </a>
-            </div>
+        <div class="text-center mt-4">
+            <a href="{% url 'projects' %}" class="btn btn-outline-light rounded-pill px-4">View All Projects</a>
         </div>
     </div>
-</section>
 
-<!-- Services Section -->
-{% comment %} <section id="services" class="py-5 bg-light">
-    <div class="container">
-        <div class="row">
-            <div class="col-12 text-center mb-5">
-                <h2 class="display-5 fw-bold">Services</h2>
-                <p class="lead">What I can do for you</p>
-            </div>
-        </div>
-        <div class="row">
-            {% for service in services %}
-            <div class="col-lg-4 mb-4">
-                <div class="service-card text-center">
-                    <div class="service-icon">
-                        <i class="fas {{ service.icon }} fa-3x text-primary"></i>
-                    </div>
-                    <h5>{{ service.title }}</h5>
-                    <p>{{ service.description }}</p>
-                    <div class="pricing-info mb-2">
-                        <small class="text-muted">
-                            <i class="fas fa-handshake"></i> Custom pricing available
-                        </small>
-                    </div>
-                    <a href="{% url 'service_order' service.id %}" class="btn btn-primary">
-                        <i class="fas fa-comments"></i> Get Quote
-                    </a>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
+    <!-- Contact Card -->
+    <div class="section-spacer"></div>
+    <div class="glass-card text-center py-5" id="contact">
+        <h2 class="section-title">Let's Collaborate</h2>
+        <p class="lead text-muted mb-5">Have an idea? Let's build something extraordinary together.</p>
+        <a href="{% url 'contact' %}" class="btn btn-neon btn-lg">
+            <i class="fas fa-envelope me-2"></i> Start a Conversation
+        </a>
     </div>
-</section> {% endcomment %}
 
-<!-- CTA Section -->
-<section id="cta" class="py-5 bg-primary text-white">
-    <div class="container">
-        <div class="row">
-            <div class="col-12 text-center">
-                <h2 class="display-5 fw-bold mb-4">Ready to Start Your Project?</h2>
-                <p class="lead mb-4">Let's work together to bring your ideas to life</p>
-                <a href="{% url 'contact' %}" class="btn btn-light btn-lg">
-                    <i class="fas fa-rocket"></i> Get Started
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
+</div>
 {% endblock %}
 
 {% block scripts %}
-<script src="{% static 'js/hero-3d.js' %}"></script>
-<script src="{% static 'js/skills-animation.js' %}"></script>
+<script src="{% static 'js/parallax.js' %}"></script>
 {% endblock %}

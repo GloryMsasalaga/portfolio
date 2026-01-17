@@ -5,50 +5,33 @@ class SkillsAnimation {
     }
 
     init() {
-        this.animateSkillBars();
         this.createFloatingIcons();
+        this.animateCardsEntry();
     }
 
-    animateSkillBars() {
+    animateCardsEntry() {
         const skillCards = document.querySelectorAll('.skill-card');
-        
+
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
+            entries.forEach((entry, index) => {
                 if (entry.isIntersecting) {
-                    this.animateCard(entry.target);
+                    // Staggered fade in
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, index * 100);
+                    observer.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.3 });
+        }, { threshold: 0.1 });
 
-        skillCards.forEach(card => observer.observe(card));
-    }
-
-    animateCard(card) {
-        const progressBar = card.querySelector('.progress-bar');
-        const proficiency = progressBar.getAttribute('aria-valuenow');
-        
-        // Animate progress bar
-        let currentWidth = 0;
-        const targetWidth = parseInt(proficiency);
-        const increment = targetWidth / 60; // 60 frames for smooth animation
-        
-        const animate = () => {
-            currentWidth += increment;
-            if (currentWidth >= targetWidth) {
-                currentWidth = targetWidth;
-                progressBar.style.width = currentWidth + '%';
-                return;
-            }
-            
-            progressBar.style.width = currentWidth + '%';
-            requestAnimationFrame(animate);
-        };
-        
-        // Start animation after a small delay
-        setTimeout(animate, Math.random() * 500);
-        
-        // Add pulsing effect
-        card.style.animation = 'skillPulse 0.6s ease-out';
+        skillCards.forEach(card => {
+            // Set initial state for animation
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'all 0.5s ease-out';
+            observer.observe(card);
+        });
     }
 
     createFloatingIcons() {
@@ -77,14 +60,16 @@ class SkillsAnimation {
                 animation: float 6s ease-in-out infinite;
                 animation-delay: ${index * 0.5}s;
                 pointer-events: none;
-                z-index: -1;
+                z-index: 0;
             `;
-            
+
             // Random positioning
             iconElement.style.left = Math.random() * 80 + 10 + '%';
             iconElement.style.top = Math.random() * 80 + 10 + '%';
-            
-            skillsSection.style.position = 'relative';
+
+            if (skillsSection.style.position !== 'relative') {
+                skillsSection.style.position = 'relative';
+            }
             skillsSection.appendChild(iconElement);
         });
     }
@@ -98,21 +83,6 @@ document.addEventListener('DOMContentLoaded', () => {
 // Add CSS for skill animations
 const skillStyle = document.createElement('style');
 skillStyle.textContent = `
-    @keyframes skillPulse {
-        0% {
-            transform: scale(1);
-            box-shadow: var(--shadow);
-        }
-        50% {
-            transform: scale(1.05);
-            box-shadow: var(--shadow-lg);
-        }
-        100% {
-            transform: scale(1);
-            box-shadow: var(--shadow);
-        }
-    }
-
     .floating-icon {
         animation: float 6s ease-in-out infinite !important;
     }
@@ -126,35 +96,6 @@ skillStyle.textContent = `
         }
         66% {
             transform: translateY(10px) rotate(-3deg);
-        }
-    }
-
-    .skill-card:hover {
-        animation: none !important;
-    }
-
-    .progress-bar {
-        position: relative;
-        overflow: hidden;
-    }
-
-    .progress-bar::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-        animation: shine 2s infinite;
-    }
-
-    @keyframes shine {
-        0% {
-            left: -100%;
-        }
-        100% {
-            left: 100%;
         }
     }
 `;

@@ -74,6 +74,7 @@ class Skill(models.Model):
     name = models.CharField(max_length=100)
     proficiency = models.IntegerField(help_text="Proficiency level from 1-100")
     category = models.CharField(max_length=100, help_text="e.g., Programming, Machine Learning, etc.")
+    icon_class = models.CharField(max_length=100, default='fas fa-code', help_text="Font Awesome icon class")
     
     def __str__(self):
         return self.name
