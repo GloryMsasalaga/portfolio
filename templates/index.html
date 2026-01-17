@@ -10,8 +10,8 @@
     <div class="hero-bg-glow"></div>
     <div class="container text-center text-white" style="position: relative; z-index: 10;">
         <h1 class="hero-title fw-bold" id="hero-text">
-            AI Engineer • Web Developer<br>
-            <span class="text-purple">Innovator</span>
+            <span class="lightning-text">AI Engineer</span> • <span class="lightning-text">Web Developer</span><br>
+            <span class="lightning-text lightning-innovator">Innovator</span>
         </h1>
         <p class="hero-subtitle mb-5" id="hero-subtitle">Building the future, one line of code at a time.</p>
 
@@ -51,7 +51,7 @@
             <div class="col-lg-12">
                 <h2 class="section-title align-content-center">About Me</h2>
                 <p class="lead text-muted mb-4">
-                    I'm Glory Lazaro (VeryNiceGlory), a passionate software developer and AI/ML engineer based in
+                    I'm Glory Lazaro (VeryniceGlory), a passionate software developer and AI/ML engineer based in
                     Tanzania.
                     I blend creative design with robust engineering to build web applications that feel alive.
                     My mission is to solve real-world problems through innovative technology.
@@ -65,6 +65,27 @@
         </div>
     </div>
 
+    <!-- Wave Separator Behind Skills & Projects -->
+    <div class="wave-separator">
+        <svg viewBox="0 0 1440 600" preserveAspectRatio="none">
+            <path class="wave-path" d="M0,300 Q360,150 720,300 T1440,300 L1440,600 L0,600 Z" fill="url(#waveGradient)"></path>
+            <defs>
+                <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:#6a00ff;stop-opacity:0.15" />
+                    <stop offset="50%" style="stop-color:#b829ea;stop-opacity:0.25" />
+                    <stop offset="100%" style="stop-color:#7f3cff;stop-opacity:0.15" />
+                </linearGradient>
+            </defs>
+        </svg>
+        <div class="floating-particles">
+            <div class="particle particle-1"></div>
+            <div class="particle particle-2"></div>
+            <div class="particle particle-3"></div>
+            <div class="particle particle-4"></div>
+            <div class="particle particle-5"></div>
+        </div>
+    </div>
+
     <!-- Skills Card -->
     <div class="section-spacer"></div>
     <div class="glass-card" id="skills">
@@ -72,8 +93,17 @@
         <div class="row text-center">
             {% for skill in skills %}
             <div class="col-md-3 col-6 mb-4">
-                <div class="skill-tag w-100 justify-content-center">
-                    <i class="{{ skill.icon_class }} me-2"></i> {{ skill.name }}
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <i class="{{ skill.icon_class }} skill-icon"></i>
+                            <h5 class="skill-name mt-3">{{ skill.name }}</h5>
+                        </div>
+                        <div class="flip-card-back">
+                            <i class="{{ skill.icon_class }} skill-icon-back"></i>
+                            <h5 class="skill-name-back mt-3">{{ skill.name }}</h5>
+                        </div>
+                    </div>
                 </div>
             </div>
             {% endfor %}

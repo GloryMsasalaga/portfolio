@@ -198,6 +198,113 @@ html.lenis {
     }
 }
 
+/* Wave Separator Behind Sections */
+.wave-separator {
+    position: absolute;
+    width: 100%;
+    height: 600px;
+    margin-top: -100px;
+    overflow: visible;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.wave-separator svg {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 0 40px rgba(106, 0, 255, 0.3));
+}
+
+.wave-path {
+    animation: waveFloat 6s ease-in-out infinite;
+}
+
+@keyframes waveFloat {
+    0%, 100% {
+        d: path("M0,300 Q360,150 720,300 T1440,300 L1440,600 L0,600 Z");
+    }
+    50% {
+        d: path("M0,300 Q360,200 720,300 T1440,300 L1440,600 L0,600 Z");
+    }
+}
+
+/* Floating Particles */
+.floating-particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.particle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(106, 0, 255, 0.6);
+    animation: float 8s ease-in-out infinite;
+}
+
+.particle-1 {
+    left: 10%;
+    top: 30%;
+    animation-delay: 0s;
+    animation-duration: 7s;
+}
+
+.particle-2 {
+    left: 30%;
+    top: 60%;
+    animation-delay: 1.5s;
+    animation-duration: 9s;
+}
+
+.particle-3 {
+    left: 50%;
+    top: 40%;
+    animation-delay: 3s;
+    animation-duration: 8s;
+}
+
+.particle-4 {
+    left: 70%;
+    top: 70%;
+    animation-delay: 2s;
+    animation-duration: 10s;
+}
+
+.particle-5 {
+    left: 90%;
+    top: 50%;
+    animation-delay: 4s;
+    animation-duration: 7.5s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) translateX(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-60px) translateX(30px);
+        opacity: 0.8;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-120px) translateX(-20px);
+        opacity: 0;
+    }
+}
+
 .hero-title {
     font-size: 4rem;
     line-height: 1.1;
@@ -207,6 +314,62 @@ html.lenis {
     background-clip: text;
     -webkit-text-fill-color: transparent;
     will-change: transform, opacity;
+}
+
+/* Lightning Effect for Hero Text */
+.lightning-text {
+    position: relative;
+    display: inline-block;
+    background: linear-gradient(180deg, #fff 0%, #e0e0e0 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: none;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.4))
+            drop-shadow(0 0 10px rgba(138, 43, 226, 0.4))
+            drop-shadow(0 0 15px rgba(106, 0, 255, 0.3));
+    animation: electricPulse 3s ease-in-out infinite;
+}
+
+.lightning-innovator {
+    background: linear-gradient(135deg, #b829ea 0%, #7f3cff 50%, #6a00ff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 8px rgba(184, 41, 234, 0.5))
+            drop-shadow(0 0 12px rgba(127, 60, 255, 0.4))
+            drop-shadow(0 0 18px rgba(106, 0, 255, 0.3));
+    animation: electricPulse 3s ease-in-out infinite, innovatorSpark 5s ease-in-out infinite;
+}
+
+@keyframes electricPulse {
+    0%, 100% {
+        filter: 
+            drop-shadow(0 0 5px rgba(255, 255, 255, 0.4))
+            drop-shadow(0 0 10px rgba(138, 43, 226, 0.4))
+            drop-shadow(0 0 15px rgba(106, 0, 255, 0.3));
+    }
+    50% {
+        filter: 
+            drop-shadow(0 0 8px rgba(255, 255, 255, 0.6))
+            drop-shadow(0 0 15px rgba(138, 43, 226, 0.5))
+            drop-shadow(0 0 20px rgba(106, 0, 255, 0.4));
+    }
+}
+
+@keyframes innovatorSpark {
+    0%, 100% {
+        filter: 
+            drop-shadow(0 0 8px rgba(184, 41, 234, 0.5))
+            drop-shadow(0 0 12px rgba(127, 60, 255, 0.4))
+            drop-shadow(0 0 18px rgba(106, 0, 255, 0.3));
+    }
+    50% {
+        filter: 
+            drop-shadow(0 0 10px rgba(184, 41, 234, 0.6))
+            drop-shadow(0 0 16px rgba(127, 60, 255, 0.5))
+            drop-shadow(0 0 22px rgba(106, 0, 255, 0.4));
+    }
 }
 
 .hero-subtitle {
@@ -270,6 +433,7 @@ html.lenis {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
     overflow: hidden;
+    z-index: 10;
     z-index: 10;
 }
 
@@ -359,6 +523,94 @@ html.lenis {
 
 .project-body p {
     color: #d1d1d1;
+}
+
+/* Flip Card Effect for Skills */
+.flip-card {
+    background-color: transparent;
+    width: 100%;
+    height: 180px;
+    perspective: 1000px;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    box-shadow: 0 4px 20px rgba(106, 0, 255, 0.2);
+}
+
+.flip-card-front {
+    background: linear-gradient(135deg, rgba(106, 0, 255, 0.1) 0%, rgba(127, 60, 255, 0.1) 100%);
+    border: 1px solid rgba(127, 60, 255, 0.3);
+}
+
+.flip-card-back {
+    background: linear-gradient(135deg, rgba(184, 41, 234, 0.2) 0%, rgba(106, 0, 255, 0.2) 100%);
+    border: 1px solid rgba(184, 41, 234, 0.4);
+    transform: rotateY(180deg);
+}
+
+.skill-icon {
+    font-size: 3rem;
+    color: var(--secondary-color);
+    filter: drop-shadow(0 0 10px rgba(127, 60, 255, 0.5));
+}
+
+.skill-name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0;
+}
+
+.skill-level-info {
+    width: 100%;
+}
+
+.skill-level-bar {
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+}
+
+.skill-level-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(106, 0, 255, 0.6);
+    transition: width 0.6s ease;
+}
+
+.skill-proficiency {
+    font-size: 0.9rem;
+    color: var(--accent-color);
+    font-weight: 600;
+    margin: 0;
 }
 
 /* Contact Button */
