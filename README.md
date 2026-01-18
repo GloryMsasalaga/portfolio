@@ -1,17 +1,13 @@
 # Glory Lazaro Portfolio
 
-A modern Django portfolio website with 3D animations for Glory Lazaro (VeryNiceGlory), showcasing skills as a Software Developer and AI/ML Engineer.
+A modern Django portfolio website for Glory Lazaro (VeryniceGlory), showcasing skills as a Software Developer and AI/ML Engineer.
 
 ## Features
 
-- **3D Animated Frontend**: Interactive 3D elements using Three.js
 - **Django Backend**: Robust backend for handling contacts and service orders
 - **Responsive Design**: Mobile-first responsive design
-- **Dark/Light Theme**: Toggle between themes
 - **Contact System**: Contact form with email integration
-- **Service Ordering**: Order services directly through the website
 - **Project Showcase**: Display GitHub projects with links
-- **Skills Visualization**: Animated skill progress bars
 - **Admin Panel**: Django admin for content management
 
 ## Technologies Used
@@ -19,14 +15,13 @@ A modern Django portfolio website with 3D animations for Glory Lazaro (VeryNiceG
 ### Frontend
 - HTML5, CSS3, JavaScript
 - Bootstrap 5
-- Three.js for 3D animations
+- Cool Ui
 - Font Awesome icons
 
 ### Backend
 - Django 5.0.1
 - Django REST Framework
 - SQLite (default, can be changed to PostgreSQL/MySQL)
-- Pillow for image handling
 
 ## Installation
 
@@ -135,8 +130,7 @@ portfolio_project/
 
 ### Customization
 1. **Colors**: Update CSS variables in `style.css`
-2. **3D Animations**: Modify `hero-3d.js` for different effects
-3. **Content**: Update templates with your information
+2. **Content**: Update templates with your information
 
 ## API Endpoints
 
