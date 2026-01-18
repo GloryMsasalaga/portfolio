@@ -82,7 +82,7 @@
   "pk": 8,
   "fields": {
     "title": "Kibena Ai",
-    "description": "A voice assistant (inspired by Siri and Bixby) talking in Swahili that manages and do things like calling, sending sms and check for remainder or locations especially for disabled people.",
+    "description": "A voice assistant (inspired by Siri and Bixby) that speaks Swahili and does things like calling, sending sms and check for remainder or locations especially for disabled people.",
     "technologies": "Django, PostgreSQL, HTML, CSS, JavaScript, Ai tools, gTTS",
     "github_link": "https://github.com/GloryMsasalaga/voice-assistant.git",
     "live_link": null,

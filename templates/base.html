@@ -5,6 +5,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Glory Lazaro (Veryniceglory) - Software Developer & AI/ML Engineer based in Tanzania. Building innovative web applications and AI solutions. View my portfolio, projects, and get in touch.">
+    <meta name="keywords" content="Glory Lazaro, Veryniceglory, Software Developer, AI Engineer, ML Engineer, Full Stack Developer, Tanzania, Web Development, Machine Learning, Portfolio">
+    <meta name="author" content="Glory Lazaro">
+    <meta name="robots" content="index, follow">
     <title>{% block title %}Veryniceglory - Portfolio{% endblock %}</title>
 
     <!-- Favicon -->
@@ -94,9 +98,8 @@
                         <li><a href="{% url 'home' %}">Home</a></li>
                         <li><a href="{% url 'about' %}">About</a></li>
                         <li><a href="{% url 'projects' %}">Projects</a></li>
-                        <li><a href="{% url 'services' %}">Services</a></li>
+                        {% comment %} <li><a href="{% url 'services' %}">Services</a></li> {% endcomment %}
                         <li><a href="{% url 'contact' %}">Contact</a></li>
-                        <li><a href="{% url 'terms' %}">Terms & Conditions</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4">
@@ -113,13 +116,8 @@
             <hr>
             <div class="row">
                 <div class="col-12 text-center">
-                    <p class="mb-1">&copy; {% now "Y" %} Glory Lazaro. All rights reserved.</p>
-                    <p class="mb-0">
-                        <small class="text-muted">
-                            <a href="{% url 'terms' %}" class="text-muted">Terms & Conditions</a>
-                            apply to all services.
-                        </small>
-                    </p>
+                    <p class="mb-0">&copy; {% now "Y" %} Veryniceglory Lazaro.</p>
+                    <p class="mb-0">Made with <i class="fas fa-heart text-danger"></i> and <i class="fas fa-coffee text-brown"></i></p>
                 </div>
             </div>
         </div>
