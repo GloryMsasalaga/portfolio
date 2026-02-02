@@ -171,20 +171,21 @@
 
 <!-- Community Section -->
 {% if communityinvolvement %}
-<section class="py-3">
+<section class="py-5 bg-light">
     <div class="container">
         <div class="row">
-            <div class="col-12 text-center mb-4">
-                <h2 class="display-5 fw-bold">Community Involvement</h2>
+            <div class="col-12 text-center mb-5">
+                <h2 class="display-5 fw-bold" style="color: #1a1a1a !important;">Community Involvement</h2>
+                <p class="lead" style="color: #444444 !important;">Contributing to the tech community</p>
             </div>
-            <div class="row">
+            <div class="row g-4">
                 {% for community in communityinvolvement %}
                 <div class="col-md-4 mb-3">
-                    <div class="community-card p-3 h-100">
+                    <div class="community-card p-4 h-100">
                         <h5 class="fw-bold">{{ community.position }}</h5>
                         <h6 class="text-primary">{{ community.name }}</h6>
                         {% if community.description %}
-                        <p>{{ community.description }}</p>
+                        <p class="mb-0">{{ community.description|linebreaks }}</p>
                         {% endif %}
                     </div>
                 </div>

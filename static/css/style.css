@@ -1002,3 +1002,53 @@ footer a:hover {
 .back-to-top-btn i {
     font-size: 1.2rem;
 }
+
+/* Community Involvement Glass Cards */
+.community-card {
+    background: rgba(255, 255, 255, 0.98) !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.community-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.community-card h5 {
+    color: #1a1a1a !important;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    text-shadow: none;
+}
+
+.community-card h6 {
+    color: #0066cc !important;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.community-card p {
+    color: #000000 !important;
+    line-height: 1.8;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.community-card ul,
+.community-card ol {
+    color: #000000 !important;
+    line-height: 1.8;
+    font-size: 1rem;
+    font-weight: 500;
+    padding-left: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+.community-card li {
+    margin-bottom: 0.5rem;
+    color: #000000 !important;
+}
