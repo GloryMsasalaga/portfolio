@@ -3,7 +3,7 @@ Admin configuration for the portfolio app.
 """
 
 from django.contrib import admin
-from .models import Project, Contact, Service, ServiceOrder, Skill, Education, Experience
+from .models import Project, Contact, Service, ServiceOrder, Skill, Education, Experience, CommunityInvolvement
 
 @admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):
@@ -53,3 +53,9 @@ class ExperienceAdmin(admin.ModelAdmin):
     list_display = ('company', 'position', 'start_date', 'end_date', 'is_current')
     search_fields = ('company', 'position', 'description')
     list_filter = ('is_current',)
+
+@admin.register(CommunityInvolvement)
+class CommunityInvolvementAdmin(admin.ModelAdmin):
+    """Admin configuration for the CommunityInvolvement model."""
+    list_display = ('position', 'name')
+    search_fields = ('position', 'name', 'description')

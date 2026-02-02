@@ -22,4 +22,5 @@ urlpatterns = [
     path('api/service-order/', views.service_order_api, name='service_order_api'),
     path('api/skills/', views.skills_api, name='skills_api'),
     path('api/services/', views.services_api, name='services_api'),
+    path('api/communityinvolvement/', views.communityinvolvement_api, name='communityinvolvement_api')
 ]

@@ -113,3 +113,15 @@ class Experience(models.Model):
     
     class Meta:
         ordering = ['-end_date', '-start_date']
+        
+class CommunityInvolvement(models.Model):
+    """Model representing community involvement"""
+    name = models.CharField(max_length=200)
+    position = models.CharField(max_length=200)
+    description = models.TextField()
+    
+    def __str__(self):
+        return f"{self.position} at {self.name}"
+    
+    class Meta:
+        ordering = ['description']

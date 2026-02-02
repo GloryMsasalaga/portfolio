@@ -6,7 +6,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib import messages
-from .models import Project, Contact, Service, ServiceOrder, Skill, Education, Experience
+from .models import Project, Contact, Service, ServiceOrder, Skill, Education, Experience, CommunityInvolvement
 
 def loading(request):
     """View for loading page."""
@@ -30,11 +30,13 @@ def about(request):
     skills = Skill.objects.all()
     education = Education.objects.all()
     experience = Experience.objects.all()
+    communityinvolvement = CommunityInvolvement.objects.all()
     
     context = {
         'skills': skills,
         'education': education,
         'experience': experience,
+        'communityinvolvement': communityinvolvement
     }
     return render(request, 'about.html', context)
 
@@ -212,3 +214,15 @@ def services_api(request):
             'icon': service.icon
         })
     return JsonResponse(data, safe=False)
+
+def communityinvolvement_api(request):
+    """API view for community involvement."""
+    communityinvolvement = CommunityInvolvement.objects.all()
+    data = []
+    for communityinvolvement in communityinvolvement:
+        data.append({
+            'name': communityinvolvement.name,
+            'position': communityinvolvement.position,
+            'description': communityinvolvement.description
+            })
+        return JsonResponse(data, safe=False)

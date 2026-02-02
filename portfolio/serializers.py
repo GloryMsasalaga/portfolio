@@ -3,7 +3,7 @@ Serializers for the portfolio app.
 """
 
 from rest_framework import serializers
-from .models import Project, Contact, Service, ServiceOrder, Skill
+from .models import Project, Contact, Service, ServiceOrder, Skill, CommunityInvolvement
 
 class ProjectSerializer(serializers.ModelSerializer):
     """Serializer for the Project model."""
@@ -33,4 +33,10 @@ class SkillSerializer(serializers.ModelSerializer):
     """Serializer for the Skill model."""
     class Meta:
         model = Skill
+        fields = '__all__'
+
+class CommunityInvolvement(serializers.ModelSerializer):
+    """Serialize for community involvement."""
+    class Meta:
+        model = CommunityInvolvement
         fields = '__all__'
