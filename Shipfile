@@ -6,6 +6,8 @@ script: |
   python manage.py migrate --verbosity=2
   echo "=== Showing migration status ==="
   python manage.py showmigrations
+  echo "=== Collecting static files ==="
+  python manage.py collectstatic --noinput --clear
   echo "=== Loading updated data ==="
   python manage.py load_updated_data
   echo "=== Deployment complete ==="
