@@ -107,22 +107,22 @@ class Command(BaseCommand):
         # Create Education
         education_data = [
             {
-                'institution': 'University of Technology',
-                'degree': 'Bachelor of Science',
-                'field_of_study': 'Computer Science',
-                'start_date': date(2018, 9, 1),
-                'end_date': date(2022, 6, 1),
+                'institution': 'Ardhi University',
+                'degree': 'Bachelor of Science in Computer Systems and Networks',
+                'field_of_study': 'Computer Systems and Networks',
+                'start_date': date(2022, 10, 10),
+                'end_date': date(2025, 7, 18),
                 'is_current': False,
                 'description': 'Focused on software engineering, algorithms, and machine learning. Graduated with honors.'
             },
             {
-                'institution': 'AI Institute',
-                'degree': 'Certificate',
-                'field_of_study': 'Machine Learning Engineering',
-                'start_date': date(2022, 1, 1),
-                'end_date': date(2022, 8, 1),
+                'institution': 'Ardhi Institute Morogoro',
+                'degree': 'Diploma in Geomatics',
+                'field_of_study': 'Geomatics',
+                'start_date': date(2018, 10, 15),
+                'end_date': date(2021, 7, 23),
                 'is_current': False,
-                'description': 'Specialized training in deep learning, neural networks, and MLOps practices.'
+                'description': 'creating and making of house plans, making observations, and creating of topographic maps.'
             }
         ]
 

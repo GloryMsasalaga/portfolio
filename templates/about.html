@@ -143,7 +143,9 @@
                 <div>
                     <h3>{{ edu.degree }}</h3>
                     <p class="timeline-org">{{ edu.institution }}</p>
+                    {% if edu.field_of_study not in edu.degree %}
                     <p>{{ edu.field_of_study }}</p>
+                    {% endif %}
                     {% if edu.description %}
                     <p class="mt-2">{{ edu.description }}</p>
                     {% endif %}

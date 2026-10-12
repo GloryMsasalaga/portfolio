@@ -363,7 +363,7 @@
   "pk": 1,
   "fields": {
     "institution": "Ardhi University",
-    "degree": "Bachelor of Science",
+    "degree": "Bachelor of Science in Computer Systems and Networks",
     "field_of_study": "Computer Systems and Networks",
     "start_date": "2022-10-10",
     "end_date": "2025-07-18",
@@ -376,8 +376,8 @@
   "pk": 3,
   "fields": {
     "institution": "Ardhi Institute Morogoro",
-    "degree": "Diploma",
-    "field_of_study": "Diploma in Geomatics",
+    "degree": "Diploma in Geomatics",
+    "field_of_study": "Geomatics",
     "start_date": "2018-10-15",
     "end_date": "2021-07-23",
     "is_current": false,
