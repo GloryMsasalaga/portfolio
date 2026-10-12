@@ -2,27 +2,86 @@
 {% load static %}
 {% load portfolio_extras %}
 
-{% block title %}VeryniceGlory | AI Engineer & Innovator{% endblock %}
-{% block body_class %}page-home{% endblock %}
+{% block title %}Veryniceglory Lazaro | Systems Integrator Engineer{% endblock %}
+{% block body_class %}has-split{% endblock %}
 
 {% block content %}
-<!-- Hero: two-tone split, after the Wine Red / Light Sand reference -->
-<section class="hero split-hero" aria-label="Introduction">
-    <div class="split-half split-top on-block">
+<!-- Hero: two-tone split with a hanging ID badge on the seam -->
+<section class="hero split-hero split-hero--badge" aria-label="Introduction">
+    <div class="sh-row split-top on-block">
         <div class="split-center" id="hero-intro">
-            <h1 class="display split-word" id="hero-title">Glory Lazaro</h1>
-            <span class="hex-tag">ROLE : SOFTWARE DEVELOPER</span>
+            <h1 class="display split-word split-word--name" id="hero-title">Veryniceglory Lazaro</h1>
+            <span class="hex-tag">PORTFOLIO : {% now "Y" %}</span>
         </div>
     </div>
 
-    <div class="split-half split-bottom">
-        <div class="split-center" id="hero-bottom">
-            <p class="display split-word" id="hero-role" aria-live="polite">AI Engineer</p>
-            <span class="hex-tag" id="hero-role-tag">FOCUS : MACHINE LEARNING</span>
-            <div class="hero-actions">
-                <a href="{% url 'projects' %}" class="btn-solid">See my work <i class="fas fa-arrow-right"></i></a>
-                <a href="{% url 'contact' %}" class="btn-line">Say hello</a>
+    <!-- The seam runs through the middle of this row, so it always cuts the badge in half -->
+    <div class="sh-row sh-seam">
+        <div class="lanyard" id="lanyard">
+            <div class="lanyard-swing">
+                <span class="lanyard-strap" aria-hidden="true"></span>
+                <span class="lanyard-clip" aria-hidden="true"></span>
+
+                <div class="id-badge" id="badge">
+                    <div class="badge-inner">
+                        <!-- Front -->
+                        <div class="badge-face badge-front">
+                            <div class="badge-band">
+                                <span class="badge-slot" aria-hidden="true"></span>
+                                <span>Veryniceglory</span>
+                                <span>ID &middot; {% now "Y" %}</span>
+                            </div>
+                            <img src="{% static 'assets/me.png' %}" alt="Veryniceglory Lazaro" class="badge-photo">
+                            <p class="badge-name">Veryniceglory<br>Lazaro</p>
+                            <span class="hex-tag badge-tag">SYSTEMS INTEGRATOR ENGINEER</span>
+                            <div class="badge-foot">
+                                <span class="badge-barcode" aria-hidden="true"></span>
+                                <button type="button" class="badge-flip" aria-label="Flip badge to see details">
+                                    Flip <i class="fas fa-rotate"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Back -->
+                        <div class="badge-face badge-back" inert>
+                            <div class="badge-band">
+                                <span class="badge-slot" aria-hidden="true"></span>
+                                <span>Details</span>
+                                <span><span class="badge-dot"></span> Available</span>
+                            </div>
+                            <dl class="badge-details">
+                                <div><dt>Works at</dt><dd>Inventions Technologies</dd></div>
+                                <div><dt>Based in</dt><dd>Tanzania</dd></div>
+                                <div><dt>Focus</dt><dd>Integrations &middot; AI/ML</dd></div>
+                                <div><dt>Stack</dt><dd>Python &middot; Django &middot; React</dd></div>
+                                <div><dt>Email</dt><dd><a href="mailto:glorymsasalaga@gmail.com">glorymsasalaga@<wbr>gmail.com</a></dd></div>
+                            </dl>
+                            <div class="badge-social">
+                                <a href="https://github.com/glorymsasalaga" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                                <a href="https://linkedin.com/in/glorymsasalaga" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="https://twitter.com/Veryniceglory" target="_blank" rel="noopener" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            </div>
+                            <div class="badge-actions">
+                                <a href="{% url 'projects' %}" class="badge-btn">See my work</a>
+                                <a href="{% url 'contact' %}" class="badge-btn badge-btn--line">Say hello</a>
+                            </div>
+                            <button type="button" class="badge-flip" aria-label="Flip badge back to the front">
+                                <i class="fas fa-rotate"></i> Flip back
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </div>
+
+        <button class="seam-btn seam-prev" type="button" aria-label="Previous role"><i class="fas fa-chevron-left"></i></button>
+        <button class="seam-btn seam-next" type="button" aria-label="Next role"><i class="fas fa-chevron-right"></i></button>
+    </div>
+
+    <div class="sh-row split-bottom">
+        <div class="split-center" id="hero-bottom">
+            <p class="display split-word" id="hero-role" aria-live="polite">Systems Integrator</p>
+            <span class="hex-tag" id="hero-role-tag">AT : INVENTIONS TECHNOLOGIES</span>
         </div>
 
         <div class="split-foot">
@@ -30,9 +89,6 @@
             <a href="#about" class="swipe-cue">Scroll <i class="fas fa-chevron-right"></i></a>
         </div>
     </div>
-
-    <button class="seam-btn seam-prev" type="button" aria-label="Previous role"><i class="fas fa-chevron-left"></i></button>
-    <button class="seam-btn seam-next" type="button" aria-label="Next role"><i class="fas fa-chevron-right"></i></button>
 </section>
 
 <!-- About -->
@@ -41,13 +97,13 @@
         <div class="split">
             <div class="reveal">
                 <span class="section-label"><span class="num">01</span> About</span>
-                <h2 class="display display-lg mt-3">Hello, I'm <span class="serif">Glory.</span></h2>
+                <h2 class="display display-lg mt-3">Hello, I'm <span class="serif">Veryniceglory.</span></h2>
             </div>
             <div class="reveal">
                 <div class="prose">
                     <p>
-                        Online I go by Veryniceglory. I'm a software developer and AI/ML engineer who blends
-                        creative design with solid engineering.
+                        I'm Veryniceglory Lazaro, a systems integrator engineer at Inventions Technologies. I connect systems
+                        and build software and AI/ML solutions, blending creative design with solid engineering.
                     </p>
                     <p>
                         I like problems that matter: tools for local businesses, communities and everyday people.
@@ -143,4 +199,5 @@
 {% block scripts %}
 <script src="{% static 'js/parallax.js' %}"></script>
 <script src="{% static 'js/hero-split.js' %}"></script>
+<script src="{% static 'js/hero-badge.js' %}"></script>
 {% endblock %}

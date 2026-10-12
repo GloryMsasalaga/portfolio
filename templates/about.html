@@ -1,33 +1,52 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}About - Glory Lazaro{% endblock %}
+{% block title %}About - Veryniceglory Lazaro{% endblock %}
+{% block body_class %}has-split{% endblock %}
 
 {% block content %}
-<header class="page-header">
-    <div class="container">
-        <span class="section-label">About</span>
-        <h1 class="display display-xl">The person<br><span class="serif">behind the</span> code.</h1>
-        <p class="lede">Get to know Glory Lazaro, a.k.a. Veryniceglory.</p>
+<!-- Header: two-tone split, after the Wine Red / Light Sand reference -->
+<section class="hero split-hero split-hero--page" aria-label="About">
+    <div class="split-half split-top on-block">
+        <div class="split-center">
+            <h1 class="display split-word">About me</h1>
+            <span class="hex-tag">WORKS AT : INVENTIONS TECHNOLOGIES</span>
+        </div>
     </div>
-</header>
+
+    <div class="split-half split-bottom">
+        <div class="split-center">
+            <p class="display split-word split-word--name">Veryniceglory Lazaro</p>
+            <span class="hex-tag">BASED IN : TANZANIA</span>
+        </div>
+
+        <div class="split-foot">
+            <span class="pill">{% now "Y" %} | All Rights Reserved</span>
+            <a href="#intro" class="swipe-cue">Scroll <i class="fas fa-chevron-right"></i></a>
+        </div>
+    </div>
+
+    <a class="seam-btn seam-prev" href="{% url 'home' %}" aria-label="Previous page: Home"><i class="fas fa-chevron-left"></i></a>
+    <a class="seam-btn seam-next" href="{% url 'projects' %}" aria-label="Next page: Projects"><i class="fas fa-chevron-right"></i></a>
+</section>
 
 <!-- Intro -->
-<section class="section">
+<section class="section" id="intro">
     <div class="container">
         <div class="split">
             <div class="reveal">
                 <div class="portrait">
-                    <img src="{% static 'assets/me.png' %}" alt="Glory Lazaro - Software Developer and AI/ML Engineer, professional portrait photo">
+                    <img src="{% static 'assets/me.png' %}" alt="Veryniceglory Lazaro - Systems Integrator Engineer, portrait">
                     <span class="pill"><i class="fas fa-location-dot"></i> Tanzania</span>
                 </div>
             </div>
             <div class="reveal">
-                <h2 class="display display-md mb-4">Software developer <span class="serif">&amp;</span> AI/ML engineer</h2>
+                <span class="hex-tag mb-4">01 : INTRO</span>
+                <h2 class="display display-md mb-4">Systems Integrator Engineer</h2>
                 <div class="prose">
                     <p>
-                        Hello! I'm Glory Lazaro, known online as Veryniceglory. I build software and machine learning
-                        systems that make a real impact.
+                        Hello! I'm Veryniceglory Lazaro, a systems integrator engineer currently working at Inventions Technologies.
+                        I connect platforms and build software and machine learning systems that make a real impact.
                     </p>
                     <p>
                         It all started with curiosity about how things work under the hood. That curiosity pulled me
@@ -39,36 +58,39 @@
                         app, an ML model or a scalable system, I bring the same attention to detail.
                     </p>
                 </div>
-                <div class="stats">
-                    <div class="stat">
-                        <span class="stat-value">30+</span>
-                        <span class="stat-label">Projects completed</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-value">3+</span>
-                        <span class="stat-label">Years of experience</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-value">100%</span>
-                        <span class="stat-label">Client satisfaction</span>
-                    </div>
-                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Numbers -->
+<section class="band on-block">
+    <div class="container">
+        <div class="stat-band">
+            <div class="stat-big reveal">
+                <span class="display stat-big-value">30+</span>
+                <span class="hex-tag">PROJECTS : COMPLETED</span>
+            </div>
+            <div class="stat-big reveal">
+                <span class="display stat-big-value">3+</span>
+                <span class="hex-tag">YEARS : EXPERIENCE</span>
+            </div>
+            <div class="stat-big reveal">
+                <span class="display stat-big-value">100%</span>
+                <span class="hex-tag">CLIENTS : SATISFIED</span>
             </div>
         </div>
     </div>
 </section>
 
 <!-- Skills -->
-<section class="section section-alt">
+<section class="section">
     <div class="container">
-        <div class="section-head reveal">
-            <div>
-                <span class="section-label">Toolkit</span>
-                <h2 class="display display-md">Technical <span class="serif">skills</span></h2>
-            </div>
-            <p class="lede">Technologies and tools I work with every day.</p>
+        <div class="mark-head reveal">
+            <h2 class="display display-lg">Toolkit</h2>
+            <span class="hex-tag">02 : TECHNICAL SKILLS</span>
         </div>
-        <ul class="skill-cloud reveal">
+        <ul class="skill-cloud skill-cloud--center reveal">
             {% for skill in skills %}
             <li class="skill-chip"><i class="{{ skill.icon_class }}" aria-hidden="true"></i>{{ skill.name }}</li>
             {% endfor %}
@@ -78,29 +100,27 @@
 
 <!-- Experience -->
 {% if experience %}
-<section class="section">
+<section class="band on-block">
     <div class="container">
-        <div class="split">
-            <div class="reveal">
-                <span class="section-label">Journey</span>
-                <h2 class="display display-md mt-3">Experience</h2>
-            </div>
-            <ol class="timeline reveal">
-                {% for exp in experience %}
-                <li class="timeline-item">
-                    <div class="timeline-date">
-                        {{ exp.start_date|date:"M Y" }} &ndash;
-                        {% if exp.is_current %}Present{% else %}{{ exp.end_date|date:"M Y" }}{% endif %}
-                    </div>
-                    <div>
-                        <h3>{{ exp.position }}</h3>
-                        <p class="timeline-org">{{ exp.company }}</p>
-                        <p>{{ exp.description }}</p>
-                    </div>
-                </li>
-                {% endfor %}
-            </ol>
+        <div class="mark-head reveal">
+            <h2 class="display display-lg">Experience</h2>
+            <span class="hex-tag">03 : JOURNEY</span>
         </div>
+        <ol class="timeline reveal">
+            {% for exp in experience %}
+            <li class="timeline-item">
+                <div class="timeline-date">
+                    {{ exp.start_date|date:"M Y" }} &ndash;
+                    {% if exp.is_current %}Present{% else %}{{ exp.end_date|date:"M Y" }}{% endif %}
+                </div>
+                <div>
+                    <h3>{{ exp.position }}</h3>
+                    <p class="timeline-org">{{ exp.company }}</p>
+                    <p>{{ exp.description }}</p>
+                </div>
+            </li>
+            {% endfor %}
+        </ol>
     </div>
 </section>
 {% endif %}
@@ -109,44 +129,39 @@
 {% if education %}
 <section class="section">
     <div class="container">
-        <div class="split">
-            <div class="reveal">
-                <span class="section-label">Learning</span>
-                <h2 class="display display-md mt-3">Education</h2>
-            </div>
-            <ol class="timeline reveal">
-                {% for edu in education %}
-                <li class="timeline-item">
-                    <div class="timeline-date">
-                        {{ edu.start_date|date:"Y" }} &ndash;
-                        {% if edu.is_current %}Present{% else %}{{ edu.end_date|date:"Y" }}{% endif %}
-                    </div>
-                    <div>
-                        <h3>{{ edu.degree }}</h3>
-                        <p class="timeline-org">{{ edu.institution }}</p>
-                        <p>{{ edu.field_of_study }}</p>
-                        {% if edu.description %}
-                        <p class="mt-2">{{ edu.description }}</p>
-                        {% endif %}
-                    </div>
-                </li>
-                {% endfor %}
-            </ol>
+        <div class="mark-head reveal">
+            <h2 class="display display-lg">Education</h2>
+            <span class="hex-tag">04 : LEARNING</span>
         </div>
+        <ol class="timeline reveal">
+            {% for edu in education %}
+            <li class="timeline-item">
+                <div class="timeline-date">
+                    {{ edu.start_date|date:"Y" }} &ndash;
+                    {% if edu.is_current %}Present{% else %}{{ edu.end_date|date:"Y" }}{% endif %}
+                </div>
+                <div>
+                    <h3>{{ edu.degree }}</h3>
+                    <p class="timeline-org">{{ edu.institution }}</p>
+                    <p>{{ edu.field_of_study }}</p>
+                    {% if edu.description %}
+                    <p class="mt-2">{{ edu.description }}</p>
+                    {% endif %}
+                </div>
+            </li>
+            {% endfor %}
+        </ol>
     </div>
 </section>
 {% endif %}
 
 <!-- Community -->
 {% if communityinvolvement %}
-<section class="section section-alt">
+<section class="band on-block">
     <div class="container">
-        <div class="section-head reveal">
-            <div>
-                <span class="section-label">Giving back</span>
-                <h2 class="display display-md">Community <span class="serif">involvement</span></h2>
-            </div>
-            <p class="lede">Contributing to the tech community.</p>
+        <div class="mark-head reveal">
+            <h2 class="display display-lg">Community</h2>
+            <span class="hex-tag">05 : GIVING BACK</span>
         </div>
         <div class="row g-3">
             {% for community in communityinvolvement %}
@@ -165,14 +180,21 @@
 </section>
 {% endif %}
 
-<!-- CTA -->
-<div class="container">
-    <section class="cta-block on-block reveal">
-        <h2 class="display display-lg">Let's work<br><span class="serif">together.</span></h2>
-        <p class="lede">Ready to bring your idea to life? Tell me what you're building.</p>
-        <a href="{% url 'contact' %}" class="btn-solid">Get in touch <i class="fas fa-arrow-right"></i></a>
-    </section>
-</div>
+<!-- CTA: a small two-tone split to close the page -->
+<section class="split-cta" aria-label="Get in touch">
+    <div class="split-half split-top on-block">
+        <div class="split-center">
+            <h2 class="display split-word">Let's work</h2>
+            <span class="hex-tag">STATUS : OPEN TO PROJECTS</span>
+        </div>
+    </div>
+    <div class="split-half split-bottom">
+        <div class="split-center">
+            <p class="display split-word">Together</p>
+            <a href="{% url 'contact' %}" class="btn-solid">Get in touch <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </div>
+</section>
 {% endblock %}
 
 {% block scripts %}

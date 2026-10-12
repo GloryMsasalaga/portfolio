@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!hero || !word || !tag) return;
 
     const roles = [
+        { word: 'Systems Integrator', tag: 'AT : INVENTIONS TECHNOLOGIES' },
         { word: 'AI Engineer', tag: 'FOCUS : MACHINE LEARNING' },
         { word: 'Full Stack', tag: 'STACK : DJANGO + REACT' },
         { word: 'Researcher', tag: 'FIELD : APPLIED AI' },

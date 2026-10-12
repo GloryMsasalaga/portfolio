@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // 4. Hero entrance: lines rise in one after another
     const hero = document.querySelector(".hero");
     if (hero) {
-        gsap.from(".split-center > *", {
+        gsap.from(".split-hero .split-center > *", {
             y: 40,
             opacity: 0,
             duration: 0.9,
@@ -40,14 +40,19 @@ document.addEventListener("DOMContentLoaded", () => {
             stagger: 0.08
         });
 
+        // The ID badge drops in on its strap and settles
+        if (document.getElementById("lanyard")) {
+            gsap.from("#lanyard", { y: -window.innerHeight * 0.7, duration: 1.6, delay: 0.2, ease: "elastic.out(1, 0.55)" });
+        }
+
         // The wordmarks drift apart as you scroll away from the split
-        gsap.to(".split-top .split-center", {
+        gsap.to(".split-hero .split-top .split-center", {
             y: -60,
             ease: "none",
             scrollTrigger: { trigger: hero, start: "top top", end: "bottom top", scrub: true }
         });
 
-        gsap.to(".split-bottom .split-center", {
+        gsap.to(".split-hero .split-bottom .split-center", {
             y: 40,
             ease: "none",
             scrollTrigger: { trigger: hero, start: "top top", end: "bottom top", scrub: true }
