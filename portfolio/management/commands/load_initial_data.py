@@ -44,7 +44,7 @@ class Command(BaseCommand):
                 'description': 'This responsive portfolio website with 3D animations and modern design. Built with Django and Three.js.',
                 'technologies': 'Python, Django, Three.js, Bootstrap 5, CSS3',
                 'github_link': 'https://github.com/glorymsasalaga/portfolio',
-                'live_link': 'https://glorylazaro.dev'
+                'live_link': 'https://veryniceglory.deploy.tz'
             }
         ]
 
