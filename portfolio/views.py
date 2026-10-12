@@ -29,7 +29,8 @@ def about(request):
     """View for about page."""
     skills = Skill.objects.all()
     education = Education.objects.all()
-    experience = Experience.objects.all()
+    # Current role first (it has no end date), then most recent
+    experience = Experience.objects.order_by('-is_current', '-start_date')
     communityinvolvement = CommunityInvolvement.objects.all()
     
     context = {

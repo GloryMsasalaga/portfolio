@@ -34,16 +34,6 @@
                         <li>{{ tech|trim }}</li>
                         {% endfor %}
                     </ul>
-                    {% if project.live_link or project.github_link %}
-                    <div class="work-links">
-                        {% if project.live_link %}
-                        <a href="{{ project.live_link }}" target="_blank" rel="noopener" class="text-link">Live demo <i class="fas fa-arrow-up-right-from-square"></i></a>
-                        {% endif %}
-                        {% if project.github_link %}
-                        <a href="{{ project.github_link }}" target="_blank" rel="noopener" class="text-link"><i class="fab fa-github"></i> View code</a>
-                        {% endif %}
-                    </div>
-                    {% endif %}
                 </div>
             </article>
             {% endfor %}

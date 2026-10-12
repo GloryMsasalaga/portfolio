@@ -31,7 +31,7 @@
                                 <span>Veryniceglory</span>
                                 <span>ID &middot; {% now "Y" %}</span>
                             </div>
-                            <img src="{% static 'assets/me.png' %}" alt="Veryniceglory Lazaro" class="badge-photo">
+                            <img src="{% static 'assets/glory-portrait.jpg' %}" alt="Veryniceglory Lazaro" class="badge-photo">
                             <p class="badge-name">Veryniceglory<br>Lazaro</p>
                             <span class="hex-tag badge-tag">SYSTEMS INTEGRATOR ENGINEER</span>
                             <div class="badge-foot">
@@ -168,15 +168,7 @@
                         {% endfor %}
                     </ul>
                     <div class="work-links">
-                        {% if project.live_link %}
-                        <a href="{{ project.live_link }}" target="_blank" rel="noopener" class="text-link">Visit <i class="fas fa-arrow-up-right-from-square"></i></a>
-                        {% endif %}
-                        {% if project.github_link %}
-                        <a href="{{ project.github_link }}" target="_blank" rel="noopener" class="text-link"><i class="fab fa-github"></i> Code</a>
-                        {% endif %}
-                        {% if not project.live_link and not project.github_link %}
                         <a href="{% url 'projects' %}" class="text-link">Details <i class="fas fa-arrow-right"></i></a>
-                        {% endif %}
                     </div>
                 </div>
             </article>

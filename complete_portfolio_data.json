@@ -407,5 +407,43 @@
     "is_current": false,
     "description": "handling databases, authentication and APIs for scalable and efficient application"
   }
+},
+{
+  "model": "portfolio.project",
+  "pk": 11,
+  "fields": {
+    "title": "VoIP Systems",
+    "description": "Deployed and integrated business VoIP phone systems at Inventions Technologies: IP PBX setup, SIP trunks, extensions, IVR menus and call routing, connected to each client's existing network.",
+    "technologies": "SIP, Asterisk, FreePBX, WebRTC, Linux, Networking",
+    "github_link": "",
+    "live_link": "",
+    "image": "",
+    "created_at": "2026-10-12T15:18:13.446570Z"
+  }
+},
+{
+  "model": "portfolio.project",
+  "pk": 12,
+  "fields": {
+    "title": "Call Center and CRM Solution",
+    "description": "Delivered a call center solution integrated with a CRM at Inventions Technologies: inbound and outbound call handling, queues and IVR, with call activity synced to customer records for agents and managers.",
+    "technologies": "Asterisk, Call Queues & IVR, CRM Integration, REST APIs, Python, MySQL, Linux",
+    "github_link": "",
+    "live_link": "",
+    "image": "",
+    "created_at": "2026-10-12T15:18:12.446570Z"
+  }
+},
+{
+  "model": "portfolio.experience",
+  "pk": 6,
+  "fields": {
+    "company": "Inventions Technologies",
+    "position": "Systems Integrator Engineer",
+    "start_date": "2026-01-01",
+    "end_date": null,
+    "is_current": true,
+    "description": "Designing, deploying and integrating VoIP, call center and CRM solutions for clients, connecting telephony with business systems through SIP, Asterisk and REST APIs."
+  }
 }
 ]
