@@ -64,3 +64,4 @@ static_root/
 *.key
 secret.txt
 .venv/
+.claude/
