@@ -18,9 +18,16 @@
     <!-- The seam runs through the middle of this row, so it always cuts the badge in half -->
     <div class="sh-row sh-seam">
         <div class="lanyard" id="lanyard">
-            <div class="lanyard-swing">
-                <span class="lanyard-strap" aria-hidden="true"></span>
-                <span class="lanyard-clip" aria-hidden="true"></span>
+            <!-- Strap runs from the top of the hero to the hook; JS stretches and angles it -->
+            <span class="lanyard-strap" id="lanyard-strap" aria-hidden="true">
+                <span class="strap-print">VERYNICEGLORY &#10022; VERYNICEGLORY &#10022; VERYNICEGLORY &#10022; VERYNICEGLORY &#10022; VERYNICEGLORY &#10022; VERYNICEGLORY &#10022; VERYNICEGLORY &#10022; VERYNICEGLORY &#10022; VERYNICEGLORY &#10022; VERYNICEGLORY &#10022; VERYNICEGLORY &#10022; VERYNICEGLORY &#10022; VERYNICEGLORY &#10022; VERYNICEGLORY &#10022; VERYNICEGLORY &#10022; VERYNICEGLORY &#10022; VERYNICEGLORY &#10022; VERYNICEGLORY &#10022; VERYNICEGLORY &#10022; VERYNICEGLORY &#10022; VERYNICEGLORY &#10022; VERYNICEGLORY &#10022; VERYNICEGLORY &#10022; VERYNICEGLORY &#10022; VERYNICEGLORY &#10022; VERYNICEGLORY &#10022; VERYNICEGLORY &#10022; VERYNICEGLORY &#10022; VERYNICEGLORY &#10022; VERYNICEGLORY &#10022; VERYNICEGLORY &#10022; VERYNICEGLORY &#10022; VERYNICEGLORY &#10022; VERYNICEGLORY &#10022; VERYNICEGLORY &#10022; VERYNICEGLORY &#10022; VERYNICEGLORY &#10022; VERYNICEGLORY &#10022; VERYNICEGLORY &#10022; VERYNICEGLORY &#10022;</span>
+            </span>
+            <div class="lanyard-swing" id="lanyard-card">
+                <span class="lanyard-hook" id="lanyard-hook" aria-hidden="true">
+                    <span class="hook-crimp"></span>
+                    <span class="hook-ring"></span>
+                    <span class="hook-clasp"></span>
+                </span>
 
                 <div class="id-badge" id="badge">
                     <div class="badge-inner">
@@ -31,7 +38,7 @@
                                 <span>Veryniceglory</span>
                                 <span>ID &middot; {% now "Y" %}</span>
                             </div>
-                            <img src="{% static 'assets/glory-portrait.jpg' %}" alt="Veryniceglory Lazaro" class="badge-photo">
+                            <img src="{% static 'assets/glory-portrait.jpg' %}" alt="Veryniceglory Lazaro" class="badge-photo" draggable="false">
                             <p class="badge-name">Veryniceglory<br>Lazaro</p>
                             <span class="hex-tag badge-tag">SYSTEMS INTEGRATOR ENGINEER</span>
                             <div class="badge-foot">
@@ -97,7 +104,7 @@
         <div class="split">
             <div class="reveal">
                 <span class="section-label"><span class="num">01</span> About</span>
-                <h2 class="display display-lg mt-3">Hello, I'm <span class="serif">Veryniceglory.</span></h2>
+                <h2 class="display greet-heading mt-3"><span class="greet-line"><span class="visually-hidden">Hello</span><span class="greet" id="greet" lang="en" aria-hidden="true">Hello</span>,</span> I'm <span class="serif">Veryniceglory.</span></h2>
             </div>
             <div class="reveal">
                 <div class="prose">
@@ -192,4 +199,5 @@
 <script src="{% static 'js/parallax.js' %}"></script>
 <script src="{% static 'js/hero-split.js' %}"></script>
 <script src="{% static 'js/hero-badge.js' %}"></script>
+<script src="{% static 'js/greet.js' %}"></script>
 {% endblock %}

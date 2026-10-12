@@ -40,11 +40,6 @@ document.addEventListener("DOMContentLoaded", () => {
             stagger: 0.08
         });
 
-        // The ID badge drops in on its strap and settles
-        if (document.getElementById("lanyard")) {
-            gsap.from("#lanyard", { y: -window.innerHeight * 0.7, duration: 1.6, delay: 0.2, ease: "elastic.out(1, 0.55)" });
-        }
-
         // The wordmarks drift apart as you scroll away from the split
         gsap.to(".split-hero .split-top .split-center", {
             y: -60,

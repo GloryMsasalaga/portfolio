@@ -453,6 +453,14 @@ a {
 .split-bottom .split-word { color: var(--wine); }
 .split-word.is-swapping { animation: role-in 0.35s var(--ease); }
 
+/* Rotating greeting ("Hello" in other languages) on the home About section */
+.greet { display: inline-block; }
+
+/* Sized so the longest greeting ("KONNICHIWA,") fits the narrow left column */
+.greet-heading { font-size: clamp(2.5rem, 3.9vw, 4.25rem); overflow-wrap: break-word; }
+.greet-line { display: block; white-space: nowrap; }
+.greet.is-swapping { animation: role-in 0.45s var(--ease); }
+
 @keyframes role-in {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: none; }
@@ -611,49 +619,128 @@ a {
 
 .lanyard { position: relative; width: var(--badge-w); height: var(--badge-h); }
 
-/* --pivot (set in JS) is the distance up to the top of the hero, where the strap hangs from */
+/* Card + hardware. JS moves and rotates it (drag, bounce, idle sway) */
 .lanyard-swing {
     position: absolute;
     inset: 0;
-    transform-origin: 50% calc(-1 * var(--pivot, 50vh));
-    animation: badge-sway 6s ease-in-out infinite;
+    z-index: 2;
+    will-change: transform;
 }
 
-.lanyard:hover .lanyard-swing,
-.lanyard.is-flipped .lanyard-swing { animation-play-state: paused; }
-
-@keyframes badge-sway {
-    0%, 100% { transform: rotate(1.2deg); }
-    50% { transform: rotate(-1.2deg); }
-}
-
+/* Woven strap: JS sets its top (hero top), length and angle */
 .lanyard-strap {
     position: absolute;
     left: 50%;
-    bottom: calc(100% + 10px);
+    top: 0;
     width: 30px;
-    height: 120vh;
-    transform: translateX(-50%);
+    height: 0;
+    margin-left: -15px;
+    transform-origin: 50% 0;
+    overflow: hidden;
+    z-index: 1;
+    border-radius: 0 0 3px 3px;
     background:
-        repeating-linear-gradient(to bottom, transparent 0 22px, rgba(245, 235, 208, 0.22) 22px 24px),
-        linear-gradient(to right, var(--wine-deep), #9B0E30 50%, var(--wine-deep));
-    border-left: 1px solid rgba(245, 235, 208, 0.25);
-    border-right: 1px solid rgba(245, 235, 208, 0.25);
-    z-index: -1;
+        repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0 1px, transparent 1px 3px),
+        repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.04) 0 1px, transparent 1px 2px),
+        linear-gradient(90deg, #4A0011, #8E0A2B 22%, #A3163A 50%, #8E0A2B 78%, #4A0011);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+    will-change: transform, height;
 }
 
-/* Metal clip joining strap and card */
-.lanyard-clip {
+/* Stitching down both edges */
+.lanyard-strap::before,
+.lanyard-strap::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    border-left: 1px dashed rgba(245, 235, 208, 0.45);
+}
+
+.lanyard-strap::before { left: 3px; }
+.lanyard-strap::after { right: 3px; }
+
+.strap-print {
     position: absolute;
     left: 50%;
-    top: -18px;
-    width: 46px;
-    height: 26px;
+    top: 0;
     transform: translateX(-50%);
-    border-radius: 6px;
-    background: linear-gradient(to bottom, #E8E2D6, #A8A094);
-    box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.25);
-    z-index: 2;
+    writing-mode: vertical-rl;
+    white-space: nowrap;
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    color: rgba(245, 235, 208, 0.82);
+    line-height: 1;
+}
+
+/* Metal hardware: crimp end, split ring, lobster clasp into the card slot */
+.lanyard-hook {
+    position: absolute;
+    left: 50%;
+    bottom: calc(100% - 14px);
+    width: 34px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: translateX(-50%);
+    z-index: 3;
+    pointer-events: none;
+}
+
+.hook-crimp,
+.hook-clasp {
+    background: linear-gradient(90deg, #8D8B86, #F4F2EC 35%, #C9C6BE 55%, #77756F);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+
+.hook-crimp {
+    width: 32px;
+    height: 13px;
+    border-radius: 3px 3px 4px 4px;
+}
+
+.hook-ring {
+    width: 18px;
+    height: 18px;
+    margin-top: -3px;
+    border-radius: 50%;
+    border: 3px solid #D9D6CF;
+    border-left-color: #F4F2EC;
+    border-right-color: #8D8B86;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.hook-clasp {
+    position: relative;
+    width: 13px;
+    height: 30px;
+    margin-top: -4px;
+    border-radius: 6px 6px 7px 7px;
+}
+
+/* Gap and spring lever of the lobster claw */
+.hook-clasp::before {
+    content: '';
+    position: absolute;
+    left: 3px;
+    right: 3px;
+    top: 6px;
+    bottom: 7px;
+    border-radius: 4px;
+    background: rgba(40, 20, 20, 0.55);
+}
+
+.hook-clasp::after {
+    content: '';
+    position: absolute;
+    right: -3px;
+    top: 9px;
+    width: 4px;
+    height: 7px;
+    border-radius: 2px;
+    background: #B9B6AE;
 }
 
 .id-badge {
@@ -661,7 +748,12 @@ a {
     width: 100%;
     height: 100%;
     perspective: 1200px;
-    cursor: pointer;
+    cursor: grab;
+    touch-action: none;
+    /* Dragging the card shouldn't select its text or pick up the photo */
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
     transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
     transition: transform 0.25s var(--ease);
     -webkit-tap-highlight-color: transparent;
@@ -675,6 +767,9 @@ a {
 }
 
 .lanyard.is-flipped .badge-inner { transform: rotateY(180deg); }
+.lanyard.is-dragging .id-badge { cursor: grabbing; transition: none; }
+.id-badge a, .id-badge button { cursor: pointer; }
+.id-badge img, .id-badge a { -webkit-user-drag: none; }
 
 .badge-face {
     position: absolute;
@@ -686,9 +781,14 @@ a {
     border-radius: 18px;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
-    box-shadow: 0 2px 4px rgba(59, 10, 21, 0.2), 0 24px 50px rgba(59, 10, 21, 0.35);
+    box-shadow:
+        0 0 0 6px rgba(255, 255, 255, 0.22),
+        0 0 0 7px rgba(255, 255, 255, 0.55),
+        0 2px 4px rgba(59, 10, 21, 0.2),
+        0 24px 50px rgba(59, 10, 21, 0.35);
     text-align: center;
 }
+
 
 .badge-front {
     background: var(--sand);
@@ -887,7 +987,6 @@ a {
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .lanyard-swing { animation: none; }
     .id-badge, .badge-inner { transition: none; }
 }
 
