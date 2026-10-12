@@ -1,0 +1,23 @@
+# Render blueprint: https://render.com/docs/blueprint-spec
+# Free web service that rebuilds on every push to main.
+# The SQLite database is created during the build and loaded from
+# complete_portfolio_data.json, so portfolio content survives redeploys;
+# anything written at runtime (contact messages) resets on restart.
+services:
+  - type: web
+    name: veryniceglory
+    runtime: python
+    plan: free
+    branch: main
+    autoDeploy: true
+    buildCommand: >-
+      pip install -r requirements.txt &&
+      python manage.py collectstatic --noinput --clear &&
+      python manage.py migrate --noinput &&
+      python manage.py load_updated_data
+    startCommand: gunicorn portfolio_project.wsgi:application --bind 0.0.0.0:$PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: DJANGO_SECRET_KEY
+        generateValue: true

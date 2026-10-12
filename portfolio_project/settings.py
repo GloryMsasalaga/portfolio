@@ -9,12 +9,16 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-add-your-own-secret-key-here'
+# Hosts set DJANGO_SECRET_KEY; the old key stays as a fallback so deploy.tz keeps working
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-add-your-own-secret-key-here')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['deploy.tz', 'veryniceglory.deploy.tz', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['deploy.tz', 'veryniceglory.deploy.tz', '.onrender.com', '127.0.0.1', 'localhost']
+
+# Forms (contact, service order) are posted over HTTPS from these sites
+CSRF_TRUSTED_ORIGINS = ['https://veryniceglory.deploy.tz', 'https://*.onrender.com']
 
 # Application definition
 INSTALLED_APPS = [
