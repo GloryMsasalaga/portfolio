@@ -25,6 +25,7 @@
     --font-display: 'Inter Tight', 'Arial Black', sans-serif;
     --font-body: 'Inter', system-ui, sans-serif;
     --font-serif: 'Instrument Serif', Georgia, serif;
+    --font-script: 'Great Vibes', 'Brush Script MT', cursive;
 
     --radius: 20px;
     --radius-sm: 12px;
@@ -888,11 +889,19 @@ a {
     .id-badge, .badge-inner { transition: none; }
 }
 
-/* Full name is long: one line on desktop, two on phones */
-.split-hero .split-word--name { font-size: clamp(2.2rem, 6.4vw, 6rem); }
+/* Name as a signature: one line on desktop, two on phones */
+.split-hero .split-word--name {
+    font-family: var(--font-script);
+    font-weight: 400;
+    font-size: clamp(2.8rem, 7.6vw, 7.25rem);
+    text-transform: none;
+    letter-spacing: 0;
+    line-height: 1;
+    padding-inline: 0.15em;
+}
 
 @media (max-width: 575.98px) {
-    .split-hero .split-word--name { font-size: clamp(2rem, 10.5vw, 3.5rem); }
+    .split-hero .split-word--name { font-size: clamp(2.8rem, 15vw, 4.75rem); }
 }
 
 /* ---------- Page header (inner pages) ---------- */
@@ -1252,7 +1261,7 @@ a {
     text-align: center;
 }
 
-.stat-big-value { font-size: clamp(3.5rem, 9vw, 7.5rem); line-height: 0.85; }
+.stat-big-value { font-size: clamp(3.5rem, 9vw, 7.5rem); line-height: 0.85; font-variant-numeric: tabular-nums; }
 
 @media (max-width: 767.98px) {
     .stat-band { grid-template-columns: 1fr; gap: 2.75rem; }
