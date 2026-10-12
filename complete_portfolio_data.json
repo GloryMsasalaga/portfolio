@@ -445,5 +445,17 @@
     "is_current": true,
     "description": "Designing, deploying and integrating VoIP, call center and CRM solutions for clients, connecting telephony with business systems through SIP, Asterisk and REST APIs."
   }
+},
+{
+  "model": "portfolio.experience",
+  "pk": 7,
+  "fields": {
+    "company": "Lahempo Tech",
+    "position": "Founder & Developer",
+    "start_date": "2022-01-01",
+    "end_date": null,
+    "is_current": true,
+    "description": "Founded and run Lahempo Tech, my own software startup, designing and building web applications and AI solutions for clients."
+  }
 }
 ]

@@ -34,31 +34,10 @@ class Command(BaseCommand):
         # Create Projects
         projects_data = [
             {
-                'title': 'AI-Powered Chat Application',
-                'description': 'A real-time chat application with AI-powered message suggestions and sentiment analysis. Built with Django, React, and OpenAI API.',
-                'technologies': 'Python, Django, React, OpenAI API, WebSockets, PostgreSQL',
-                'github_link': 'https://github.com/glorymsasalaga/ai-chat-app',
-                'live_link': 'https://ai-chat.glorylazaro.dev'
-            },
-            {
-                'title': 'E-commerce Analytics Dashboard',
-                'description': 'A comprehensive analytics dashboard for e-commerce businesses with real-time data visualization and machine learning insights.',
-                'technologies': 'Python, Django, Chart.js, Pandas, Scikit-learn, Redis',
-                'github_link': 'https://github.com/glorymsasalaga/ecommerce-analytics',
-                'live_link': 'https://analytics.glorylazaro.dev'
-            },
-            {
                 'title': 'Smart Home IoT System',
                 'description': 'An IoT system for smart home automation with mobile app control and machine learning for energy optimization.',
                 'technologies': 'Python, Django REST Framework, React Native, Arduino, TensorFlow',
                 'github_link': 'https://github.com/glorymsasalaga/smart-home-iot',
-            },
-            {
-                'title': 'Image Classification API',
-                'description': 'A REST API for image classification using deep learning models. Supports multiple model architectures and real-time inference.',
-                'technologies': 'Python, FastAPI, TensorFlow, Docker, AWS S3',
-                'github_link': 'https://github.com/glorymsasalaga/image-classification-api',
-                'live_link': 'https://api.glorylazaro.dev/classify'
             },
             {
                 'title': 'Portfolio Website',
@@ -159,28 +138,36 @@ class Command(BaseCommand):
         # Create Experience
         experience_data = [
             {
-                'company': 'TechCorp Solutions',
-                'position': 'Senior Full-Stack Developer',
-                'start_date': date(2023, 1, 1),
+                'company': 'Inventions Technologies',
+                'position': 'Systems Integrator Engineer',
+                'start_date': date(2026, 1, 1),
                 'end_date': None,
                 'is_current': True,
-                'description': 'Lead development of scalable web applications and AI-powered features. Mentor junior developers and collaborate with cross-functional teams.'
+                'description': 'Designing, deploying and integrating VoIP, call center and CRM solutions for clients, connecting telephony with business systems through SIP, Asterisk and REST APIs.'
             },
             {
-                'company': 'DataFlow Analytics',
-                'position': 'Machine Learning Engineer',
-                'start_date': date(2022, 6, 1),
-                'end_date': date(2022, 12, 31),
-                'is_current': False,
-                'description': 'Developed and deployed machine learning models for predictive analytics. Worked with large datasets and implemented MLOps pipelines.'
+                'company': 'Lahempo Tech',
+                'position': 'Founder & Developer',
+                'start_date': date(2022, 1, 1),
+                'end_date': None,
+                'is_current': True,
+                'description': 'Founded and run Lahempo Tech, my own software startup, designing and building web applications and AI solutions for clients.'
             },
             {
-                'company': 'StartupXYZ',
-                'position': 'Junior Software Developer',
-                'start_date': date(2021, 6, 1),
-                'end_date': date(2022, 5, 31),
+                'company': 'Briq Solution',
+                'position': 'Frontend Developer',
+                'start_date': date(2025, 7, 18),
+                'end_date': date(2025, 8, 18),
                 'is_current': False,
-                'description': 'Built web applications using Django and React. Participated in agile development processes and code reviews.'
+                'description': 'Handling frontend using react and typescript'
+            },
+            {
+                'company': 'Nairi Company',
+                'position': 'Backend Developer',
+                'start_date': date(2025, 7, 14),
+                'end_date': date(2025, 8, 18),
+                'is_current': False,
+                'description': 'handling databases, authentication and APIs for scalable and efficient application'
             }
         ]
 
@@ -194,5 +181,5 @@ class Command(BaseCommand):
                 self.stdout.write(f'Created experience: {experience.position} at {experience.company}')
 
         self.stdout.write(
-            self.style.SUCCESS('Successfully loaded initial data for Glory Lazaro portfolio!')
+            self.style.SUCCESS('Successfully loaded initial data for Veryniceglory Lazaro portfolio!')
         )
