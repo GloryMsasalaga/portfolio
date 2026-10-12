@@ -4,75 +4,69 @@
 {% block title %}Contact - Glory Lazaro{% endblock %}
 
 {% block content %}
-<section class="py-5" style="margin-top: 80px;">
+<header class="page-header">
     <div class="container">
-        <div class="row">
-            <div class="col-12 text-center mb-5">
-                <h1 class="display-4 fw-bold">Get In Touch</h1>
-                <p class="lead">Let's discuss your next project</p>
+        <span class="section-label">Contact</span>
+        <h1 class="display display-xl">Say<br><span class="serif">hello.</span></h1>
+        <p class="lede">Have a project, a question or just want to talk tech? My inbox is open.</p>
+    </div>
+</header>
+
+<section class="section">
+    <div class="container">
+        <div class="split">
+            <div class="reveal">
+                <h2 class="display display-md mb-4">Find me <span class="serif">online</span></h2>
+                <ul class="contact-list">
+                    <li>
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=glorymsasalaga@gmail.com" target="_blank" rel="noopener" class="contact-link">
+                            <span class="icon"><i class="fas fa-envelope"></i></span>
+                            <div><small>Email</small><span>glorymsasalaga@gmail.com</span></div>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/glorymsasalaga" target="_blank" rel="noopener" class="contact-link">
+                            <span class="icon"><i class="fab fa-github"></i></span>
+                            <div><small>GitHub</small><span>github.com/glorymsasalaga</span></div>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://linkedin.com/in/glorymsasalaga" target="_blank" rel="noopener" class="contact-link">
+                            <span class="icon"><i class="fab fa-linkedin-in"></i></span>
+                            <div><small>LinkedIn</small><span>linkedin.com/in/glorymsasalaga</span></div>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </li>
+                </ul>
             </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-lg-8 mx-auto">
-                <div class="contact-form-container">
-                    <form id="contact-form" method="POST">
-                        {% csrf_token %}
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label for="name" class="form-label">Full Name</label>
-                                <input type="text" class="form-control" id="name" name="name" required>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label for="email" class="form-label">Email Address</label>
-                                <input type="email" class="form-control" id="email" name="email" required>
-                            </div>
+
+            <div class="form-card reveal">
+                <form id="contact-form" method="POST">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="name" class="form-label">Full name</label>
+                            <input type="text" class="form-control" id="name" name="name" autocomplete="name" placeholder="Your name" required>
                         </div>
-                        <div class="mb-3">
-                            <label for="subject" class="form-label">Subject</label>
-                            <input type="text" class="form-control" id="subject" name="subject" required>
+                        <div class="col-md-6 mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" autocomplete="email" placeholder="you@example.com" required>
                         </div>
-                        <div class="mb-4">
-                            <label for="message" class="form-label">Message</label>
-                            <textarea class="form-control" id="message" name="message" rows="6" required></textarea>
-                        </div>
-                        <div class="text-center">
-                            <button type="submit" class="btn btn-primary btn-lg">
-                                <i class="fas fa-paper-plane"></i> Send Message
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-        
-        <div class="row mt-5">
-            <div class="col-md-4 text-center mb-4">
-                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=glorymsasalaga@gmail.com" target="_blank" class="contact-info-card d-block text-decoration-none">
-                    <div class="contact-icon">
-                        <i class="fas fa-envelope fa-2x text-primary"></i>
                     </div>
-                    <h5>Email</h5>
-                    <p>glorymsasalaga@gmail.com</p>
-                </a>
-            </div>
-            <div class="col-md-4 text-center mb-4">
-                <a href="https://github.com/glorymsasalaga" target="_blank" class="contact-info-card d-block text-decoration-none">
-                    <div class="contact-icon">
-                        <i class="fab fa-github fa-2x text-primary"></i>
+                    <div class="mb-3">
+                        <label for="subject" class="form-label">Subject</label>
+                        <input type="text" class="form-control" id="subject" name="subject" placeholder="What's it about?" required>
                     </div>
-                    <h5>GitHub</h5>
-                    <p>github.com/glorymsasalaga</p>
-                </a>
-            </div>
-            <div class="col-md-4 text-center mb-4">
-                <a href="https://linkedin.com/in/glorymsasalaga" target="_blank" class="contact-info-card d-block text-decoration-none">
-                    <div class="contact-icon">
-                        <i class="fab fa-linkedin fa-2x text-primary"></i>
+                    <div class="mb-4">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea class="form-control" id="message" name="message" rows="6" placeholder="Tell me about your idea…" required></textarea>
                     </div>
-                    <h5>LinkedIn</h5>
-                    <p>linkedin.com/in/glorymsasalaga</p>
-                </a>
+                    <button type="submit" class="btn-solid w-100">
+                        Send message <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
             </div>
         </div>
     </div>
@@ -80,59 +74,5 @@
 {% endblock %}
 
 {% block scripts %}
-<style>
-.contact-form-container {
-    background: var(--card-bg);
-    border-radius: 15px;
-    padding: 3rem;
-    box-shadow: var(--shadow-lg);
-    border: 1px solid var(--border-color);
-}
-
-.contact-info-card {
-    background: var(--card-bg);
-    border-radius: 15px;
-    padding: 2rem;
-    box-shadow: var(--shadow);
-    border: 1px solid var(--border-color);
-    transition: all 0.3s ease;
-    height: 100%;
-}
-
-.contact-info-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-lg);
-}
-
-.contact-icon {
-    margin-bottom: 1rem;
-}
-
-.form-control {
-    border-radius: 10px;
-    border: 2px solid var(--border-color);
-    padding: 0.75rem 1rem;
-    transition: all 0.3s ease;
-}
-
-.form-control:focus {
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 0.2rem rgba(99, 102, 241, 0.25);
-}
-
-/* Theme-aware text styling for contact page */
-.contact-info-card h5,
-.contact-info-card p {
-    color: var(--text-color) !important;
-}
-
-.form-control {
-    background-color: var(--card-bg);
-    color: var(--text-color);
-}
-
-.form-control::placeholder {
-    color: var(--text-light);
-}
-</style>
+<script src="{% static 'js/parallax.js' %}"></script>
 {% endblock %}

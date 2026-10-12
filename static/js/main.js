@@ -260,17 +260,5 @@ style.textContent = `
         transform: translateY(0);
     }
 
-    .navbar.scrolled {
-        background: rgba(17, 24, 39, 0.98) !important;
-        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-    }
-
-    .alert {
-        position: fixed;
-        top: 80px;
-        right: 20px;
-        z-index: 1050;
-        min-width: 300px;
-    }
 `;
 document.head.appendChild(style);

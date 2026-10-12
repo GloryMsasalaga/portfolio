@@ -3,157 +3,144 @@
 {% load portfolio_extras %}
 
 {% block title %}VeryniceGlory | AI Engineer & Innovator{% endblock %}
+{% block body_class %}page-home{% endblock %}
 
 {% block content %}
-<!-- Parallax Hero -->
-<div class="hero-wrapper">
-    <div class="hero-bg-glow"></div>
-    <div class="container text-center text-white" style="position: relative; z-index: 10;">
-        <h1 class="hero-title fw-bold" id="hero-text">
-            <span class="lightning-text">AI Engineer</span> • <span class="lightning-text">Web Developer</span><br>
-            <span class="lightning-text lightning-innovator">Innovator</span>
-        </h1>
-        <p class="hero-subtitle mb-5" id="hero-subtitle">Building the future, one line of code at a time.</p>
-
-        <div id="hero-btn">
-            <a href="{% url 'projects' %}" class="btn btn-neon me-3">Explore Work</a>
-            <a href="{% url 'contact' %}" class="btn btn-outline-light rounded-pill px-4 py-3 fw-bold">Contact Me</a>
+<!-- Hero: two-tone split, after the Wine Red / Light Sand reference -->
+<section class="hero split-hero" aria-label="Introduction">
+    <div class="split-half split-top on-block">
+        <div class="split-center" id="hero-intro">
+            <h1 class="display split-word" id="hero-title">Glory Lazaro</h1>
+            <span class="hex-tag">ROLE : SOFTWARE DEVELOPER</span>
         </div>
     </div>
-    
-    <!-- Curved Shape at Bottom -->
-    <div class="hero-curve-shape">
-        <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
-            <path class="curve-path" d="M0,160 Q360,60 720,160 T1440,160 L1440,320 L0,320 Z" fill="url(#curveGradient)"></path>
-            <defs>
-                <linearGradient id="curveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" style="stop-color:#22D3EE;stop-opacity:0.08" />
-                    <stop offset="50%" style="stop-color:#06B6D4;stop-opacity:0.15" />
-                    <stop offset="100%" style="stop-color:#22D3EE;stop-opacity:0.08" />
-                </linearGradient>
-            </defs>
-        </svg>
-        <div class="curve-animation-placeholder">
-            <div class="pulse-circle"></div>
-            <div class="pulse-circle pulse-delay-1"></div>
-            <div class="pulse-circle pulse-delay-2"></div>
+
+    <div class="split-half split-bottom">
+        <div class="split-center" id="hero-bottom">
+            <p class="display split-word" id="hero-role" aria-live="polite">AI Engineer</p>
+            <span class="hex-tag" id="hero-role-tag">FOCUS : MACHINE LEARNING</span>
+            <div class="hero-actions">
+                <a href="{% url 'projects' %}" class="btn-solid">See my work <i class="fas fa-arrow-right"></i></a>
+                <a href="{% url 'contact' %}" class="btn-line">Say hello</a>
+            </div>
+        </div>
+
+        <div class="split-foot">
+            <span class="pill">{% now "Y" %} | All Rights Reserved</span>
+            <a href="#about" class="swipe-cue">Scroll <i class="fas fa-chevron-right"></i></a>
         </div>
     </div>
-</div>
 
-<!-- Main Content Wrapper (GSAP Flip Cards) -->
-<div class="content-wrapper container">
+    <button class="seam-btn seam-prev" type="button" aria-label="Previous role"><i class="fas fa-chevron-left"></i></button>
+    <button class="seam-btn seam-next" type="button" aria-label="Next role"><i class="fas fa-chevron-right"></i></button>
+</section>
 
-    <!-- About Card -->
-    <div class="section-spacer"></div>
-    <div class="glass-card" id="about">
-        <div class="row align-items-center">
-            <div class="col-lg-12">
-                <h2 class="section-title align-content-center">About Me</h2>
-                <p class="lead text-muted mb-4">
-                    I'm Glory Lazaro (VeryniceGlory), a passionate software developer and AI/ML engineer based in
-                    Tanzania.
-                    I blend creative design with robust engineering to build web applications that feel alive.
-                    My mission is to solve real-world problems through innovative technology.
-                </p>
-                <div class="d-flex flex-wrap gap-2 justify-content-center">
-                    <span class="skill-tag"><i class="fas fa-brain"></i> AI Research</span>
-                    <span class="skill-tag"><i class="fas fa-code"></i> Full Stack</span>
-                    <span class="skill-tag"><i class="fas fa-server"></i> System Design</span>
+<!-- About -->
+<section class="section" id="about">
+    <div class="container">
+        <div class="split">
+            <div class="reveal">
+                <span class="section-label"><span class="num">01</span> About</span>
+                <h2 class="display display-lg mt-3">Hello, I'm <span class="serif">Glory.</span></h2>
+            </div>
+            <div class="reveal">
+                <div class="prose">
+                    <p>
+                        Online I go by Veryniceglory. I'm a software developer and AI/ML engineer who blends
+                        creative design with solid engineering.
+                    </p>
+                    <p>
+                        I like problems that matter: tools for local businesses, communities and everyday people.
+                        I build them so they're fast, honest and a little bit delightful.
+                    </p>
                 </div>
+                <div class="d-flex flex-wrap gap-2 mt-4">
+                    <span class="pill"><i class="fas fa-brain"></i> AI research</span>
+                    <span class="pill"><i class="fas fa-code"></i> Full stack</span>
+                    <span class="pill"><i class="fas fa-server"></i> System design</span>
+                </div>
+                <a href="{% url 'about' %}" class="text-link mt-4">More about me <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
     </div>
+</section>
 
-    <!-- Wave Separator Behind Skills & Projects -->
-    <div class="wave-separator">
-        <svg viewBox="0 0 1440 600" preserveAspectRatio="none">
-            <path class="wave-path" d="M0,300 Q360,150 720,300 T1440,300 L1440,600 L0,600 Z" fill="url(#waveGradient)"></path>
-            <defs>
-                <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" style="stop-color:#22D3EE;stop-opacity:0.05" />
-                    <stop offset="50%" style="stop-color:#06B6D4;stop-opacity:0.1" />
-                    <stop offset="100%" style="stop-color:#22D3EE;stop-opacity:0.05" />
-                </linearGradient>
-            </defs>
-        </svg>
-        <div class="floating-particles">
-            <div class="particle particle-1"></div>
-            <div class="particle particle-2"></div>
-            <div class="particle particle-3"></div>
-            <div class="particle particle-4"></div>
-            <div class="particle particle-5"></div>
+<!-- Skills -->
+<section class="section section-alt" id="skills">
+    <div class="container">
+        <div class="section-head reveal">
+            <div>
+                <span class="section-label"><span class="num">02</span> Toolkit</span>
+                <h2 class="display display-md">Things I build <span class="serif">with</span></h2>
+            </div>
+            <p class="lede">From notebooks to production: the languages, frameworks and tools I reach for most.</p>
         </div>
-    </div>
-
-    <!-- Skills Card -->
-    <div class="section-spacer"></div>
-    <div class="glass-card" id="skills">
-        <h2 class="section-title">Technical Skills</h2>
-        <div class="row text-center">
+        <ul class="skill-cloud reveal">
             {% for skill in skills %}
-            <div class="col-md-3 col-6 mb-4">
-                <div class="flip-card">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                            <i class="{{ skill.icon_class }} skill-icon"></i>
-                            <h5 class="skill-name mt-3">{{ skill.name }}</h5>
-                        </div>
-                        <div class="flip-card-back">
-                            <i class="{{ skill.icon_class }} skill-icon-back"></i>
-                            <h5 class="skill-name-back mt-3">{{ skill.name }}</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <li class="skill-chip"><i class="{{ skill.icon_class }}" aria-hidden="true"></i>{{ skill.name }}</li>
             {% endfor %}
-        </div>
+        </ul>
     </div>
+</section>
 
-    <!-- Projects Card -->
-    <div class="section-spacer"></div>
-    <div class="glass-card" id="projects">
-        <h2 class="section-title mb-5">Featured Works</h2>
-        <div class="row">
+<!-- Projects -->
+<section class="section" id="projects">
+    <div class="container">
+        <div class="section-head reveal">
+            <div>
+                <span class="section-label"><span class="num">03</span> Selected work</span>
+                <h2 class="display display-md">Recent <span class="serif">builds</span></h2>
+            </div>
+            <a href="{% url 'projects' %}" class="btn-line">All projects <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="project-grid">
             {% for project in projects %}
-            <div class="col-lg-4 mb-4">
-                <div class="project-mini-card">
-                    <div class="project-img">
-                        {% if project.image %}
-                        <img src="{{ project.image.url }}" alt="{{ project.title }}"
-                            style="width:100%; height:100%; object-fit:cover;">
-                        {% else %}
-                        <i class="fas fa-code fa-3x"></i>
+            <article class="work-card reveal">
+                <div class="work-cover">
+                    {% if project.image %}
+                    <img src="{{ project.image.url }}" alt="{{ project.title }}" loading="lazy">
+                    {% else %}
+                    <span class="work-num" aria-hidden="true">{{ forloop.counter|stringformat:"02d" }}</span>
+                    {% endif %}
+                </div>
+                <div class="work-body">
+                    <h3>{{ project.title }}</h3>
+                    <p>{{ project.description|truncatewords:22 }}</p>
+                    <ul class="tech-list">
+                        {% for tech in project.technologies|split:","|slice:":4" %}
+                        <li>{{ tech|trim }}</li>
+                        {% endfor %}
+                    </ul>
+                    <div class="work-links">
+                        {% if project.live_link %}
+                        <a href="{{ project.live_link }}" target="_blank" rel="noopener" class="text-link">Visit <i class="fas fa-arrow-up-right-from-square"></i></a>
+                        {% endif %}
+                        {% if project.github_link %}
+                        <a href="{{ project.github_link }}" target="_blank" rel="noopener" class="text-link"><i class="fab fa-github"></i> Code</a>
+                        {% endif %}
+                        {% if not project.live_link and not project.github_link %}
+                        <a href="{% url 'projects' %}" class="text-link">Details <i class="fas fa-arrow-right"></i></a>
                         {% endif %}
                     </div>
-                    <div class="project-body">
-                        <h5 class="fw-bold text-white">{{ project.title }}</h5>
-                        <p class="text-muted small">{{ project.description|truncatewords:15 }}</p>
-                        <a href="{% if project.live_link %}{{ project.live_link }}{% else %}#{% endif %}">
-                        </a>
-                    </div>
                 </div>
-            </div>
+            </article>
             {% endfor %}
         </div>
-        <div class="text-center mt-4">
-            <a href="{% url 'projects' %}" class="btn btn-outline-light rounded-pill px-4">View All Projects</a>
-        </div>
     </div>
+</section>
 
-    <!-- Contact Card -->
-    <div class="section-spacer"></div>
-    <div class="glass-card text-center py-5" id="contact">
-        <h2 class="section-title">Let's Collaborate</h2>
-        <p class="lead text-muted mb-5">Have an idea? Let's build something extraordinary together.</p>
-        <a href="{% url 'contact' %}" class="btn btn-neon btn-lg">
-            <i class="fas fa-envelope me-2"></i> Start a Conversation
-        </a>
-    </div>
-
+<!-- Contact CTA -->
+<div class="container">
+    <section class="cta-block on-block reveal">
+        <span class="section-label" style="color: var(--block-text);"><span class="num">04</span> Contact</span>
+        <h2 class="display display-lg mt-3">Got an idea?<br><span class="serif">Let's build it.</span></h2>
+        <p class="lede">Whether it's a product, a model or a wild experiment, I'd love to hear about it.</p>
+        <a href="{% url 'contact' %}" class="btn-solid">Start a conversation <i class="fas fa-arrow-right"></i></a>
+    </section>
 </div>
 {% endblock %}
 
 {% block scripts %}
 <script src="{% static 'js/parallax.js' %}"></script>
+<script src="{% static 'js/hero-split.js' %}"></script>
 {% endblock %}

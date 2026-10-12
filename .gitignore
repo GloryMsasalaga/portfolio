@@ -63,3 +63,4 @@ static_root/
 .env
 *.key
 secret.txt
+.venv/

@@ -9,17 +9,28 @@
     <meta name="keywords" content="Glory Lazaro, Veryniceglory, Software Developer, AI Engineer, ML Engineer, Full Stack Developer, Tanzania, Web Development, Machine Learning, Portfolio">
     <meta name="author" content="Glory Lazaro">
     <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#7F011F">
     <title>{% block title %}Veryniceglory - Portfolio{% endblock %}</title>
+
+    <!-- Apply saved theme before first paint to avoid a flash -->
+    <script>
+        (function () {
+            try {
+                var t = localStorage.getItem('theme');
+                if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+            } catch (e) {}
+        })();
+    </script>
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="{% static 'assets/dev-icon.svg' %}">
     <link rel="alternate icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><defs><linearGradient id='grad1' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' style='stop-color:%236366f1;stop-opacity:1' /><stop offset='100%' style='stop-color:%238b5cf6;stop-opacity:1' /></linearGradient></defs><circle cx='32' cy='32' r='30' fill='url(%23grad1)' stroke='%23fff' stroke-width='2'/><text x='15' y='22' font-family='monospace' font-size='14' fill='white' font-weight='bold'>&lt;</text><text x='45' y='22' font-family='monospace' font-size='14' fill='white' font-weight='bold'>/&gt;</text><rect x='22' y='28' width='20' height='2' fill='white' rx='1'/><rect x='22' y='32' width='15' height='2' fill='white' rx='1'/><rect x='22' y='36' width='18' height='2' fill='white' rx='1'/><rect x='22' y='40' width='12' height='2' fill='white' rx='1'/><rect x='38' y='40' width='2' height='2' fill='white'/></svg>">
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><circle cx='32' cy='32' r='30' fill='%237F011F'/><text x='32' y='42' text-anchor='middle' font-family='Arial Black,sans-serif' font-size='28' font-weight='900' fill='%23F5EBD0'>G</text></svg>">
 
     <!-- CSS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600;800;900&family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
@@ -33,51 +44,56 @@
     {% block head_content %}{% endblock %}
 </head>
 
-<body>
+<body class="{% block body_class %}{% endblock %}">
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <nav class="navbar navbar-expand-lg fixed-top site-nav">
         <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="{% url 'home' %}">
-                VeryniceGlory
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link {% if request.path == '/' %}active{% endif %}"
-                            href="{% url 'home' %}">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {% if 'about' in request.path %}active{% endif %}"
-                            href="{% url 'about' %}">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {% if 'projects' in request.path %}active{% endif %}"
-                            href="{% url 'projects' %}">Projects</a>
-                    </li>
-                    {% comment %}
-                    <li class="nav-item">
-                        <a class="nav-link {% if 'services' in request.path %}active{% endif %}"
-                            href="{% url 'services' %}">Services</a>
-                    </li> {% endcomment %}
-                    <li class="nav-item">
-                        <a class="nav-link {% if 'contact' in request.path %}active{% endif %}"
-                            href="{% url 'contact' %}">Contact</a>
-                    </li>
-                </ul>
+            <div class="nav-shell">
+                <a class="navbar-brand" href="{% url 'home' %}">Veryniceglory</a>
+                <a class="profile-pill" href="{% url 'about' %}" aria-label="About Glory">
+                    <img src="{% static 'assets/me.png' %}" alt="" class="nav-avatar">
+                    <span class="profile-text">
+                        <span class="profile-handle">@veryniceglory <i class="fas fa-circle-check" aria-hidden="true"></i></span>
+                        <span class="profile-role">Software Developer</span>
+                    </span>
+                </a>
+                <div class="nav-actions">
+                    <button id="theme-toggle" class="icon-btn" type="button" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <button class="navbar-toggler icon-btn" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link {% if request.path == '/' %}active{% endif %}"
+                                href="{% url 'home' %}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {% if 'about' in request.path %}active{% endif %}"
+                                href="{% url 'about' %}">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {% if 'projects' in request.path %}active{% endif %}"
+                                href="{% url 'projects' %}">Projects</a>
+                        </li>
+                        {% comment %}
+                        <li class="nav-item">
+                            <a class="nav-link {% if 'services' in request.path %}active{% endif %}"
+                                href="{% url 'services' %}">Services</a>
+                        </li> {% endcomment %}
+                        <li class="nav-item">
+                            <a class="nav-link nav-cta {% if 'contact' in request.path %}active{% endif %}"
+                                href="{% url 'contact' %}">Let's talk</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </nav>
-
-    <!-- Theme Switcher -->
-    <div class="theme-switcher">
-        <button id="theme-toggle" class="btn btn-sm">
-            <i class="fas fa-adjust"></i>
-        </button>
-    </div>
 
     <!-- Main Content -->
     <main>
@@ -85,16 +101,16 @@
     </main>
 
     <!-- Footer -->
-    <footer class="footer mt-auto py-3">
+    <footer class="site-footer">
         <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <h5>Glory Lazaro</h5>
-                    <p>Software Developer & AI/ML Engineer</p>
+            <div class="footer-grid">
+                <div>
+                    <p class="footer-label">Glory Lazaro</p>
+                    <p class="footer-tagline">Software developer &amp; AI/ML engineer,<br><em class="serif">building from Tanzania.</em></p>
                 </div>
-                <div class="col-md-4">
-                    <h5>Quick Links</h5>
-                    <ul class="list-unstyled">
+                <div>
+                    <p class="footer-label">Pages</p>
+                    <ul class="footer-links">
                         <li><a href="{% url 'home' %}">Home</a></li>
                         <li><a href="{% url 'about' %}">About</a></li>
                         <li><a href="{% url 'projects' %}">Projects</a></li>
@@ -102,30 +118,27 @@
                         <li><a href="{% url 'contact' %}">Contact</a></li>
                     </ul>
                 </div>
-                <div class="col-md-4">
-                    <h5>Connect</h5>
+                <div>
+                    <p class="footer-label">Elsewhere</p>
                     <div class="social-links">
-                        <a href="https://github.com/glorymsasalaga" target="_blank"><i class="fab fa-github"></i></a>
-                        <a href="https://linkedin.com/in/glorymsasalaga" target="_blank"><i
-                                class="fab fa-linkedin"></i></a>
-                        <a href="https://twitter.com/Veryniceglory" target="_blank"><i class="fab fa-twitter"></i></a>
-                        <a href="mailto:glorymsasalaga@gmail.com"><i class="fas fa-envelope"></i></a>
+                        <a href="https://github.com/glorymsasalaga" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://linkedin.com/in/glorymsasalaga" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://twitter.com/Veryniceglory" target="_blank" rel="noopener" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="mailto:glorymsasalaga@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
             </div>
-            <hr>
-            <div class="row">
-                <div class="col-12 text-center">
-                    <p class="mb-0">&copy; {% now "Y" %} Veryniceglory Lazaro.</p>
-                    <p class="mb-0">Made with <i class="fas fa-heart text-danger"></i> and <i class="fas fa-coffee text-brown"></i></p>
-                </div>
+            <p class="footer-wordmark" aria-hidden="true">Veryniceglory</p>
+            <div class="footer-bottom">
+                <span class="pill">&copy; {% now "Y" %} | All rights reserved</span>
+                <span class="pill">Made with <i class="fas fa-heart"></i> &amp; <i class="fas fa-coffee"></i></span>
             </div>
         </div>
     </footer>
 
     <!-- Back to Top Button -->
-    <button id="back-to-top" class="back-to-top-btn" title="Back to Top">
-        <i class="fas fa-chevron-up"></i>
+    <button id="back-to-top" class="back-to-top-btn" title="Back to top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
     </button>
 
     <!-- JavaScript -->
